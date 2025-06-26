@@ -98,6 +98,24 @@
       "roomType": "Tipe Kamar",
       "date": "Tanggal",
       "amount": "Jumlah"
+    },
+    "bookingsPage": {
+        "title": "Kelola Pemesanan",
+        "tableTitle": "Semua Pemesanan",
+        "tableDescription": "Daftar lengkap semua pemesanan di hotel.",
+        "headers": {
+            "bookingId": "ID Pemesanan",
+            "guest": "Tamu",
+            "roomType": "Tipe Kamar",
+            "dates": "Tanggal",
+            "status": "Status",
+            "amount": "Jumlah"
+        },
+        "statuses": {
+            "Confirmed": "Dikonfirmasi",
+            "Pending": "Tertunda",
+            "Cancelled": "Dibatalkan"
+        }
     }
   },
   "accessDenied": {

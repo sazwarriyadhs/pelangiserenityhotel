@@ -98,6 +98,24 @@
         "roomType": "Room Type",
         "date": "Date",
         "amount": "Amount"
+    },
+    "bookingsPage": {
+        "title": "Manage Bookings",
+        "tableTitle": "All Bookings",
+        "tableDescription": "A comprehensive list of all bookings at the hotel.",
+        "headers": {
+            "bookingId": "Booking ID",
+            "guest": "Guest",
+            "roomType": "Room Type",
+            "dates": "Dates",
+            "status": "Status",
+            "amount": "Amount"
+        },
+        "statuses": {
+            "Confirmed": "Confirmed",
+            "Pending": "Pending",
+            "Cancelled": "Cancelled"
+        }
     }
   },
   "accessDenied": {
