@@ -114,7 +114,48 @@
         "statuses": {
             "Confirmed": "Confirmed",
             "Pending": "Pending",
-            "Cancelled": "Cancelled"
+            "Cancelled": "Cancelled",
+            "CheckedIn": "Checked In"
+        },
+        "tabs": {
+            "all": "All",
+            "confirmed": "Confirmed",
+            "pending": "Pending",
+            "cancelled": "Cancelled",
+            "checkedIn": "Checked In"
+        },
+        "addNew": "Add Reservation",
+        "export": "Export",
+        "todaysArrivals": "Today's Arrivals",
+        "todaysDepartures": "Today's Departures",
+        "guests": "Guests",
+        "actions": "Actions",
+        "actionsMenu": {
+            "checkIn": "Check-in",
+            "checkOut": "Check-out",
+            "viewDetails": "View Details",
+            "cancel": "Cancel Booking"
+        },
+        "addReservationDialog": {
+            "title": "Create New Reservation",
+            "description": "Fill in the details below to create a new booking.",
+            "guestName": "Guest Name",
+            "guestNamePlaceholder": "e.g., John Doe",
+            "roomType": "Room Type",
+            "selectRoom": "Select a room type",
+            "submit": "Create Reservation",
+            "cancel": "Cancel",
+            "errors": {
+              "guestNameRequired": "Guest name is required.",
+              "roomRequired": "Please select a room type.",
+              "checkinRequired": "A check-in date is required.",
+              "checkoutRequired": "A check-out date is required.",
+              "datesRequired": "Please select your check-in and check-out dates."
+            },
+            "success": {
+              "title": "Reservation Created",
+              "description": "Successfully created a new booking for {guestName} in a {roomType}."
+            }
         }
     },
     "guestsPage": {
@@ -150,3 +191,5 @@
     "copyright": "© {year} Tranquil Stays. All Rights Reserved."
   }
 }
+
+    

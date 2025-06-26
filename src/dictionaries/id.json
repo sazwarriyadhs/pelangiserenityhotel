@@ -114,7 +114,48 @@
         "statuses": {
             "Confirmed": "Dikonfirmasi",
             "Pending": "Tertunda",
-            "Cancelled": "Dibatalkan"
+            "Cancelled": "Dibatalkan",
+            "CheckedIn": "Sudah Check-in"
+        },
+        "tabs": {
+            "all": "Semua",
+            "confirmed": "Dikonfirmasi",
+            "pending": "Tertunda",
+            "cancelled": "Dibatalkan",
+            "checkedIn": "Sudah Check-in"
+        },
+        "addNew": "Tambah Reservasi",
+        "export": "Ekspor",
+        "todaysArrivals": "Kedatangan Hari Ini",
+        "todaysDepartures": "Keberangkatan Hari Ini",
+        "guests": "Tamu",
+        "actions": "Aksi",
+        "actionsMenu": {
+            "checkIn": "Check-in",
+            "checkOut": "Check-out",
+            "viewDetails": "Lihat Detail",
+            "cancel": "Batalkan Pemesanan"
+        },
+        "addReservationDialog": {
+            "title": "Buat Reservasi Baru",
+            "description": "Isi detail di bawah ini untuk membuat pemesanan baru.",
+            "guestName": "Nama Tamu",
+            "guestNamePlaceholder": "cth., John Doe",
+            "roomType": "Tipe Kamar",
+            "selectRoom": "Pilih tipe kamar",
+            "submit": "Buat Reservasi",
+            "cancel": "Batal",
+            "errors": {
+              "guestNameRequired": "Nama tamu wajib diisi.",
+              "roomRequired": "Silakan pilih tipe kamar.",
+              "checkinRequired": "Tanggal check-in wajib diisi.",
+              "checkoutRequired": "Tanggal check-out wajib diisi.",
+              "datesRequired": "Silakan pilih tanggal check-in dan check-out Anda."
+            },
+            "success": {
+              "title": "Reservasi Dibuat",
+              "description": "Berhasil membuat pemesanan baru untuk {guestName} di kamar {roomType}."
+            }
         }
     },
     "guestsPage": {
@@ -150,3 +191,5 @@
     "copyright": "© {year} Tranquil Stays. Hak Cipta Dilindungi Undang-Undang."
   }
 }
+
+    
