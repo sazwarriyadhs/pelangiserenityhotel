@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { getDictionary } from '@/lib/get-dictionary'
 import type { Locale } from '@/config/i18n-config'
+import { FeaturedHighlights } from '@/components/featured-highlights';
 
 export default async function Home({ params: { lang } }: { params: { lang: Locale } }) {
   const dictionary = await getDictionary(lang)
@@ -37,6 +38,10 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
               <Link href="#booking">{dictionary.hero.button}</Link>
             </Button>
           </div>
+        </section>
+
+        <section id="features" className="py-16 md:py-24 lg:py-32 bg-background">
+          <FeaturedHighlights dictionary={dictionary.highlights} />
         </section>
 
         <section id="rooms" className="py-16 md:py-24 lg:py-32">

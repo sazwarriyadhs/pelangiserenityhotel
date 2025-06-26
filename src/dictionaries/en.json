@@ -27,6 +27,24 @@
     "subtitle": "Where luxury meets tranquility. Your exclusive escape awaits.",
     "button": "Book Your Stay"
   },
+  "highlights": {
+    "title": "Why Choose Us?",
+    "subtitle": "Experience the best of luxury and comfort with our exclusive features.",
+    "items": {
+      "seaBreeze": {
+        "title": "Ocean Breeze Balconies",
+        "description": "Every room features a private balcony with stunning ocean views."
+      },
+      "freeWifi": {
+        "title": "High-Speed Wi-Fi",
+        "description": "Stay connected with complimentary ultra-fast internet access throughout the hotel."
+      },
+      "gourmetBreakfast": {
+        "title": "Gourmet Breakfast",
+        "description": "Start your day with a complimentary gourmet breakfast prepared by our top chefs."
+      }
+    }
+  },
   "rooms": {
     "title": "Our Accommodations",
     "subtitle": "Each of our rooms and suites is designed with your comfort and luxury in mind.",
@@ -605,6 +623,12 @@
             "heroTitle": "Title",
             "heroSubtitle": "Subtitle",
             "heroImageUrl": "Background Image URL"
+        },
+        "highlightsSection": {
+            "title": "Featured Highlights Section",
+            "description": "Manage the features highlighted on your homepage.",
+            "itemTitle": "Item Title",
+            "itemDescription": "Item Description"
         },
         "saveChanges": "Save Changes",
         "toastSuccessTitle": "Content Saved",

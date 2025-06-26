@@ -27,6 +27,24 @@
     "subtitle": "Di mana kemewahan bertemu ketenangan. Pelarian eksklusif Anda menanti.",
     "button": "Pesan Penginapan Anda"
   },
+  "highlights": {
+    "title": "Mengapa Memilih Kami?",
+    "subtitle": "Nikmati kemewahan dan kenyamanan terbaik dengan fitur eksklusif kami.",
+    "items": {
+      "seaBreeze": {
+        "title": "Balkon dengan Angin Laut",
+        "description": "Setiap kamar memiliki balkon pribadi dengan pemandangan laut yang menakjubkan."
+      },
+      "freeWifi": {
+        "title": "Wi-Fi Berkecepatan Tinggi",
+        "description": "Tetap terhubung dengan akses internet ultra-cepat gratis di seluruh area hotel."
+      },
+      "gourmetBreakfast": {
+        "title": "Sarapan Gourmet",
+        "description": "Awali hari Anda dengan sarapan gourmet gratis yang disiapkan oleh koki terbaik kami."
+      }
+    }
+  },
   "rooms": {
     "title": "Akomodasi Kami",
     "subtitle": "Setiap kamar dan suite kami dirancang dengan mempertimbangkan kenyamanan dan kemewahan Anda.",
@@ -605,6 +623,12 @@
             "heroTitle": "Judul",
             "heroSubtitle": "Subjudul",
             "heroImageUrl": "URL Gambar Latar"
+        },
+        "highlightsSection": {
+            "title": "Bagian Fitur Unggulan",
+            "description": "Kelola fitur-fitur yang ditonjolkan di beranda Anda.",
+            "itemTitle": "Judul Item",
+            "itemDescription": "Deskripsi Item"
         },
         "saveChanges": "Simpan Perubahan",
         "toastSuccessTitle": "Konten Tersimpan",
