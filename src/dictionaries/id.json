@@ -128,6 +128,17 @@
         "totalBookings": "Total Pemesanan",
         "lastVisit": "Kunjungan Terakhir"
       }
+    },
+    "analyticsPage": {
+        "title": "Analitik Hotel",
+        "description": "Analitik mendalam tentang kinerja hotel. Halaman ini hanya dapat diakses oleh Administrator.",
+        "revenue": "Pendapatan",
+        "occupancy": "Okupansi",
+        "revenueTrend": "Tren Pendapatan (12 Bulan Terakhir)",
+        "occupancyRate": "Tingkat Hunian per Tipe Kamar (%)",
+        "avgBookingValue": "Nilai Pemesanan Rata-rata",
+        "avgStayLength": "Lama Menginap Rata-rata",
+        "days": "Hari"
     }
   },
   "accessDenied": {

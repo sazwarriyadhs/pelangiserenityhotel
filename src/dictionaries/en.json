@@ -128,6 +128,17 @@
         "totalBookings": "Total Bookings",
         "lastVisit": "Last Visit"
       }
+    },
+    "analyticsPage": {
+        "title": "Hotel Analytics",
+        "description": "In-depth analytics on hotel performance. This page is only accessible to Administrators.",
+        "revenue": "Revenue",
+        "occupancy": "Occupancy",
+        "revenueTrend": "Revenue Trend (Last 12 Months)",
+        "occupancyRate": "Occupancy Rate by Room Type (%)",
+        "avgBookingValue": "Avg. Booking Value",
+        "avgStayLength": "Avg. Length of Stay",
+        "days": "Days"
     }
   },
   "accessDenied": {
