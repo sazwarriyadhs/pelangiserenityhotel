@@ -52,7 +52,13 @@
     "button": "Dapatkan Rekomendasi",
     "buttonLoading": "Menghasilkan...",
     "error": "Kami mengalami masalah saat mendapatkan rekomendasi Anda. Silakan coba lagi nanti.",
-    "recommendationsTitle": "Rekomendasi Pribadi Anda"
+    "recommendationsTitle": "Rekomendasi Pribadi Anda",
+    "flightsTitle": "Opsi Penerbangan",
+    "flightNumber": "Penerbangan",
+    "airline": "Maskapai",
+    "departure": "Keberangkatan",
+    "arrival": "Kedatangan",
+    "price": "Harga"
   },
   "footer": {
     "copyright": "© {year} Tranquil Stays. Hak Cipta Dilindungi Undang-Undang."

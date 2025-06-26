@@ -12,16 +12,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { rooms } from "@/lib/constants";
 import Link from "next/link";
-import { useCurrency } from "@/context/currency-provider";
-import { priceRates } from "@/config/i18n-config";
-import type { Currency } from "@/context/currency-provider";
-
-function formatCurrency(amount: number, currency: Currency) {
-    if (currency === 'IDR') {
-        return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(amount);
-    }
-    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
-}
+import { useCurrency, type Currency } from "@/context/currency-provider";
+import { priceRates, formatCurrency } from "@/lib/currency";
 
 export function RoomShowcase({ dictionary }: { dictionary: any }) {
   const { currency } = useCurrency();

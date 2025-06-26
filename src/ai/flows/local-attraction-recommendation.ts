@@ -21,7 +21,7 @@ const FlightSchema = z.object({
     flightNumber: z.string(),
     departureTime: z.string(),
     arrivalTime: z.string(),
-    price: z.number(),
+    price: z.number().describe("Price in USD"),
     airline: z.string(),
 });
 
@@ -61,7 +61,8 @@ export type LocalAttractionRecommendationInput = z.infer<typeof LocalAttractionR
 const LocalAttractionRecommendationOutputSchema = z.object({
   recommendations: z
     .string()
-    .describe('A list of personalized recommendations for local attractions near the hotel. If flights were requested, this includes flight details.'),
+    .describe('A list of personalized recommendations for local attractions near the hotel.'),
+  flights: z.array(FlightSchema).optional().describe('A list of flight options, if requested by the user.'),
 });
 export type LocalAttractionRecommendationOutput = z.infer<typeof LocalAttractionRecommendationOutputSchema>;
 
@@ -78,7 +79,9 @@ const prompt = ai.definePrompt({
   tools: [searchFlights],
   prompt: `You are an AI concierge at a luxury hotel. Your primary goal is to provide a list of personalized recommendations for local attractions based on the guest's interests.
 
-  If the guest's request also mentions needing to find flights, use the 'searchFlights' tool to find flight options and include the details in your response along with the local attraction recommendations.
+  If the guest's request also mentions needing to find flights, use the 'searchFlights' tool to find flight options. Populate the 'flights' field in the output with the search results. Do not mention the flights in the 'recommendations' field.
+
+  The 'recommendations' field should only contain the text for local attraction recommendations.
 
   Respond in the following language: {{{language}}}.
 

@@ -52,7 +52,13 @@
     "button": "Get Recommendations",
     "buttonLoading": "Generating...",
     "error": "We encountered an issue getting your recommendations. Please try again later.",
-    "recommendationsTitle": "Your Personalized Recommendations"
+    "recommendationsTitle": "Your Personalized Recommendations",
+    "flightsTitle": "Flight Options",
+    "flightNumber": "Flight",
+    "airline": "Airline",
+    "departure": "Departure",
+    "arrival": "Arrival",
+    "price": "Price"
   },
   "footer": {
     "copyright": "© {year} Tranquil Stays. All Rights Reserved."

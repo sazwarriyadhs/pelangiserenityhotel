@@ -12,6 +12,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sparkles } from "lucide-react";
 import type { Locale } from "@/config/i18n-config";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { useCurrency } from "@/context/currency-provider";
+import { priceRates, formatCurrency } from "@/lib/currency";
 
 const getConciergeFormSchema = (dictionary: any) => z.object({
   interests: z.string().min(10, {
@@ -23,6 +26,7 @@ export function AiConcierge({ dictionary, lang }: { dictionary: any, lang: Local
   const [recommendation, setRecommendation] = useState<LocalAttractionRecommendationOutput | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { currency } = useCurrency();
   
   const conciergeFormSchema = getConciergeFormSchema(dictionary);
 
@@ -89,10 +93,42 @@ export function AiConcierge({ dictionary, lang }: { dictionary: any, lang: Local
               {dictionary.recommendationsTitle}
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="prose prose-invert prose-p:text-foreground/80 whitespace-pre-wrap">
-              {recommendation.recommendations}
-            </div>
+          <CardContent className="space-y-6">
+            {recommendation.recommendations && (
+              <div className="prose prose-invert prose-p:text-foreground/80 whitespace-pre-wrap">
+                {recommendation.recommendations}
+              </div>
+            )}
+
+            {recommendation.flights && recommendation.flights.length > 0 && (
+              <div className="space-y-2">
+                <h3 className="text-lg font-semibold text-primary">{dictionary.flightsTitle}</h3>
+                <div className="border rounded-md">
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead>{dictionary.flightNumber}</TableHead>
+                                <TableHead>{dictionary.airline}</TableHead>
+                                <TableHead>{dictionary.departure}</TableHead>
+                                <TableHead>{dictionary.arrival}</TableHead>
+                                <TableHead className="text-right">{dictionary.price}</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {recommendation.flights.map((flight) => (
+                                <TableRow key={flight.flightNumber}>
+                                    <TableCell>{flight.flightNumber}</TableCell>
+                                    <TableCell>{flight.airline}</TableCell>
+                                    <TableCell>{flight.departureTime}</TableCell>
+                                    <TableCell>{flight.arrivalTime}</TableCell>
+                                    <TableCell className="text-right">{formatCurrency(flight.price * priceRates[currency], currency)}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </div>
+              </div>
+            )}
           </CardContent>
         </Card>
       )}

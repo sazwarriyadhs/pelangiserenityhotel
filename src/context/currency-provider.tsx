@@ -1,8 +1,7 @@
 "use client"
 
 import React, { createContext, useContext, useState, ReactNode } from 'react'
-
-export type Currency = 'USD' | 'IDR'
+import type { Currency } from '@/lib/currency'
 
 type CurrencyContextType = {
   currency: Currency
@@ -27,3 +26,5 @@ export function useCurrency() {
   }
   return context
 }
+
+export type { Currency };

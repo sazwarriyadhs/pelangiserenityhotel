@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { i18n, currencyMap } from '@/config/i18n-config'
+import { i18n } from '@/config/i18n-config'
 import type { Locale } from '@/config/i18n-config'
 import { CurrencyProvider } from '@/context/currency-provider'
+import { currencyMap } from '@/lib/currency'
 
 
 export async function generateStaticParams() {
