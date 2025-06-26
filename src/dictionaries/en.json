@@ -76,6 +76,7 @@
         "overview": "Overview",
         "bookings": "Bookings",
         "rooms": "Rooms",
+        "housekeeping": "Housekeeping",
         "guests": "Guests",
         "payments": "Payments",
         "analytics": "Analytics",
@@ -266,6 +267,26 @@
         "actions": "Actions",
         "viewDetails": "View Details",
         "sendReminder": "Send Reminder"
+    },
+    "housekeepingPage": {
+      "title": "Housekeeping Management",
+      "description": "Monitor and update the status of all rooms.",
+      "tableTitle": "Room Status Overview",
+      "tableDescription": "A live overview of the cleaning status for every room.",
+      "headers": {
+          "room": "Room",
+          "status": "Status",
+          "assignedTo": "Assigned To",
+          "notes": "Notes",
+          "actions": "Update Status"
+      },
+      "statuses": {
+          "Clean": "Clean",
+          "Dirty": "Dirty",
+          "In Progress": "In Progress",
+          "Inspected": "Inspected"
+      },
+      "updateStatus": "Update Status"
     }
   },
   "accessDenied": {

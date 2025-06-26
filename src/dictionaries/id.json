@@ -76,6 +76,7 @@
         "overview": "Gambaran Umum",
         "bookings": "Pemesanan",
         "rooms": "Kamar",
+        "housekeeping": "Tata Graha",
         "guests": "Tamu",
         "payments": "Pembayaran",
         "analytics": "Analitik",
@@ -266,6 +267,26 @@
         "actions": "Aksi",
         "viewDetails": "Lihat Detail",
         "sendReminder": "Kirim Pengingat"
+    },
+    "housekeepingPage": {
+      "title": "Manajemen Tata Graha",
+      "description": "Pantau dan perbarui status kebersihan semua kamar.",
+      "tableTitle": "Gambaran Status Kamar",
+      "tableDescription": "Gambaran langsung status kebersihan untuk setiap kamar.",
+      "headers": {
+          "room": "Kamar",
+          "status": "Status",
+          "assignedTo": "Ditugaskan Kepada",
+          "notes": "Catatan",
+          "actions": "Perbarui Status"
+      },
+      "statuses": {
+          "Clean": "Bersih",
+          "Dirty": "Kotor",
+          "In Progress": "Sedang Dikerjakan",
+          "Inspected": "Telah Diperiksa"
+      },
+      "updateStatus": "Perbarui Status"
     }
   },
   "accessDenied": {
