@@ -80,6 +80,7 @@
         "guests": "Tamu",
         "payments": "Pembayaran",
         "analytics": "Analitik",
+        "staff": "Staf",
         "settings": "Pengaturan"
     },
     "title": "Dasbor",
@@ -287,6 +288,52 @@
           "Inspected": "Telah Diperiksa"
       },
       "updateStatus": "Perbarui Status"
+    },
+    "staffPage": {
+        "title": "Manajemen Staf & Peran",
+        "description": "Kelola akun staf, peran, dan izin. Halaman ini hanya untuk administrator.",
+        "addNew": "Tambah Staf Baru",
+        "tableTitle": "Daftar Staf",
+        "headers": {
+            "name": "Nama",
+            "email": "Email",
+            "role": "Peran",
+            "status": "Status"
+        },
+        "actions": "Aksi",
+        "actionsMenu": {
+            "edit": "Ubah",
+            "deactivate": "Nonaktifkan"
+        },
+        "statuses": {
+            "Active": "Aktif",
+            "Inactive": "Tidak Aktif"
+        },
+        "roles": {
+            "Admin": "Admin",
+            "Staff": "Staf / Resepsionis",
+            "Housekeeping": "Tata Graha"
+        },
+        "addStaffDialog": {
+            "title": "Tambah Anggota Staf Baru",
+            "editTitle": "Ubah Anggota Staf",
+            "description": "Isi detail untuk membuat akun staf baru.",
+            "name": "Nama Lengkap",
+            "email": "Alamat Email",
+            "role": "Peran",
+            "selectRole": "Pilih peran",
+            "submit": "Simpan Anggota Staf",
+            "cancel": "Batal",
+            "errors": {
+                "nameRequired": "Nama lengkap wajib diisi.",
+                "emailInvalid": "Silakan masukkan email yang valid.",
+                "roleRequired": "Silakan pilih peran."
+            },
+            "success": {
+                "title": "Anggota Staf Disimpan",
+                "description": "Berhasil menyimpan anggota staf '{name}'."
+            }
+        }
     }
   },
   "accessDenied": {

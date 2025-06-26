@@ -80,6 +80,7 @@
         "guests": "Guests",
         "payments": "Payments",
         "analytics": "Analytics",
+        "staff": "Staff",
         "settings": "Settings"
     },
     "title": "Dashboard",
@@ -287,6 +288,52 @@
           "Inspected": "Inspected"
       },
       "updateStatus": "Update Status"
+    },
+    "staffPage": {
+        "title": "Staff & Role Management",
+        "description": "Manage staff accounts, roles, and permissions. This page is for administrators only.",
+        "addNew": "Add New Staff",
+        "tableTitle": "Staff List",
+        "headers": {
+            "name": "Name",
+            "email": "Email",
+            "role": "Role",
+            "status": "Status"
+        },
+        "actions": "Actions",
+        "actionsMenu": {
+            "edit": "Edit",
+            "deactivate": "Deactivate"
+        },
+        "statuses": {
+            "Active": "Active",
+            "Inactive": "Inactive"
+        },
+        "roles": {
+            "Admin": "Admin",
+            "Staff": "Staff / Receptionist",
+            "Housekeeping": "Housekeeping"
+        },
+        "addStaffDialog": {
+            "title": "Add New Staff Member",
+            "editTitle": "Edit Staff Member",
+            "description": "Fill in the details to create a new staff account.",
+            "name": "Full Name",
+            "email": "Email Address",
+            "role": "Role",
+            "selectRole": "Select a role",
+            "submit": "Save Staff Member",
+            "cancel": "Cancel",
+            "errors": {
+                "nameRequired": "Full name is required.",
+                "emailInvalid": "Please enter a valid email.",
+                "roleRequired": "Please select a role."
+            },
+            "success": {
+                "title": "Staff Member Saved",
+                "description": "Successfully saved the staff member '{name}'."
+            }
+        }
     }
   },
   "accessDenied": {

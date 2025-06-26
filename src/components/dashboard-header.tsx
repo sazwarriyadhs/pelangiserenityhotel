@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Hotel, Menu, LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, BedDouble, CreditCard, Mop } from "lucide-react";
+import { Hotel, Menu, LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, BedDouble, CreditCard, Mop, UserCog } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LocaleSwitcher } from './locale-switcher'
@@ -25,6 +25,7 @@ export function DashboardHeader({ lang, dictionary }: { lang: Locale, dictionary
         { href: `/${lang}/dashboard/guests`, label: navDict.guests, icon: Users },
         { href: `/${lang}/dashboard/payments`, label: navDict.payments, icon: CreditCard },
         { href: `/${lang}/dashboard/analytics`, label: navDict.analytics, icon: BarChart3 },
+        { href: `/${lang}/dashboard/staff`, label: navDict.staff, icon: UserCog },
     ];
     const settingsNav = { href: `/${lang}/dashboard/settings`, label: navDict.settings, icon: Settings };
 
