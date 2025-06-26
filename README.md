@@ -1,5 +1,7 @@
-# Firebase Studio
+# Tranquil Stays
 
-This is a NextJS starter in Firebase Studio.
+This is a Next.js application for Tranquil Stays, a luxury hotel experience.
 
-To get started, take a look at src/app/page.tsx.
+- **Room Showcase**: Browse our exquisite rooms.
+- **Booking Form**: Easily book your stay.
+- **AI Concierge**: Get personalized local attraction recommendations from our AI.
