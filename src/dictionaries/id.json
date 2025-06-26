@@ -77,6 +77,7 @@
         "bookings": "Pemesanan",
         "rooms": "Kamar",
         "guests": "Tamu",
+        "payments": "Pembayaran",
         "analytics": "Analitik",
         "settings": "Pengaturan"
     },
@@ -235,6 +236,36 @@
         "avgBookingValue": "Nilai Pemesanan Rata-rata",
         "avgStayLength": "Lama Menginap Rata-rata",
         "days": "Hari"
+    },
+    "paymentsPage": {
+        "title": "Manajemen Pembayaran",
+        "description": "Lacak dan kelola semua transaksi keuangan.",
+        "stats": {
+            "totalRevenue": "Total Pendapatan (Bulan Ini)",
+            "outstandingInvoices": "Tagihan Tertunda",
+            "transactionsToday": "Transaksi Hari Ini"
+        },
+        "recentTransactions": {
+            "title": "Transaksi Terkini",
+            "description": "Daftar transaksi keuangan terbaru."
+        },
+        "headers": {
+            "transactionId": "ID Transaksi",
+            "guest": "Tamu",
+            "date": "Tanggal",
+            "amount": "Jumlah",
+            "status": "Status"
+        },
+        "statuses": {
+            "Paid": "Lunas",
+            "Pending": "Tertunda",
+            "Failed": "Gagal"
+        },
+        "exportReport": "Ekspor Laporan",
+        "newInvoice": "Tagihan Baru",
+        "actions": "Aksi",
+        "viewDetails": "Lihat Detail",
+        "sendReminder": "Kirim Pengingat"
     }
   },
   "accessDenied": {

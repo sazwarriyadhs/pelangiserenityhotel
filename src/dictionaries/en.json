@@ -77,6 +77,7 @@
         "bookings": "Bookings",
         "rooms": "Rooms",
         "guests": "Guests",
+        "payments": "Payments",
         "analytics": "Analytics",
         "settings": "Settings"
     },
@@ -235,6 +236,36 @@
         "avgBookingValue": "Avg. Booking Value",
         "avgStayLength": "Avg. Length of Stay",
         "days": "Days"
+    },
+    "paymentsPage": {
+        "title": "Payment Management",
+        "description": "Track and manage all financial transactions.",
+        "stats": {
+            "totalRevenue": "Total Revenue (This Month)",
+            "outstandingInvoices": "Outstanding Invoices",
+            "transactionsToday": "Transactions Today"
+        },
+        "recentTransactions": {
+            "title": "Recent Transactions",
+            "description": "A list of the most recent financial transactions."
+        },
+        "headers": {
+            "transactionId": "Transaction ID",
+            "guest": "Guest",
+            "date": "Date",
+            "amount": "Amount",
+            "status": "Status"
+        },
+        "statuses": {
+            "Paid": "Paid",
+            "Pending": "Pending",
+            "Failed": "Failed"
+        },
+        "exportReport": "Export Report",
+        "newInvoice": "New Invoice",
+        "actions": "Actions",
+        "viewDetails": "View Details",
+        "sendReminder": "Send Reminder"
     }
   },
   "accessDenied": {
