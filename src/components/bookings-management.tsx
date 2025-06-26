@@ -59,8 +59,7 @@ export function BookingsManagement({ dictionary, lang }: { dictionary: any, lang
     const { toast } = useToast();
     const [activeTab, setActiveTab] = useState("all");
     const [isDialogOpen, setIsDialogOpen] = useState(false);
-    const isAuthorized = user && (user.role === 'admin' || user.role === 'staff')
-
+    
     const bookingsDict = dictionary.dashboard.bookingsPage;
     const addBookingDialogDict = bookingsDict.addReservationDialog;
     const addBookingFormSchema = getAddBookingFormSchema(addBookingDialogDict);
@@ -70,6 +69,17 @@ export function BookingsManagement({ dictionary, lang }: { dictionary: any, lang
       defaultValues: { guestName: "" }
     });
 
+    const filteredBookings = useMemo(() => {
+        if (activeTab === 'all') return mockBookings;
+        return mockBookings.filter(b => b.status.toLowerCase() === activeTab);
+    }, [activeTab]);
+    
+    const isAuthorized = user && (user.role === 'admin' || user.role === 'staff')
+
+    if (!isAuthorized) {
+        return <AccessDenied dictionary={dictionary.accessDenied} lang={lang} />
+    }
+    
     function onAddBooking(data: z.infer<typeof addBookingFormSchema>) {
       toast({
         title: addBookingDialogDict.success.title,
@@ -81,18 +91,9 @@ export function BookingsManagement({ dictionary, lang }: { dictionary: any, lang
       setIsDialogOpen(false);
       form.reset();
     }
-    
-    if (!isAuthorized) {
-        return <AccessDenied dictionary={dictionary.accessDenied} lang={lang} />
-    }
 
     const todaysArrivals = mockBookings.filter(b => isToday(parseISO(b.checkIn)) && b.status === 'Confirmed');
     const todaysDepartures = mockBookings.filter(b => isToday(parseISO(b.checkOut)) && b.status === 'CheckedIn');
-
-    const filteredBookings = useMemo(() => {
-        if (activeTab === 'all') return mockBookings;
-        return mockBookings.filter(b => b.status.toLowerCase() === activeTab);
-    }, [activeTab]);
 
     const getStatusVariant = (status: BookingStatus): "default" | "secondary" | "destructive" | "outline" => {
         switch (status) {
@@ -259,5 +260,7 @@ export function BookingsManagement({ dictionary, lang }: { dictionary: any, lang
         </div>
     )
 }
+
+    
 
     
