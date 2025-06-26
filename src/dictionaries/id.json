@@ -116,6 +116,18 @@
             "Pending": "Tertunda",
             "Cancelled": "Dibatalkan"
         }
+    },
+    "guestsPage": {
+      "title": "Kelola Tamu",
+      "tableTitle": "Semua Tamu",
+      "tableDescription": "Daftar semua tamu yang pernah menginap di hotel.",
+      "headers": {
+        "guestId": "ID Tamu",
+        "name": "Nama",
+        "contact": "Kontak",
+        "totalBookings": "Total Pemesanan",
+        "lastVisit": "Kunjungan Terakhir"
+      }
     }
   },
   "accessDenied": {

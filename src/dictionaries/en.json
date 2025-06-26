@@ -116,6 +116,18 @@
             "Pending": "Pending",
             "Cancelled": "Cancelled"
         }
+    },
+    "guestsPage": {
+      "title": "Manage Guests",
+      "tableTitle": "All Guests",
+      "tableDescription": "A list of all guests who have stayed at the hotel.",
+      "headers": {
+        "guestId": "Guest ID",
+        "name": "Name",
+        "contact": "Contact",
+        "totalBookings": "Total Bookings",
+        "lastVisit": "Last Visit"
+      }
     }
   },
   "accessDenied": {
