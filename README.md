@@ -1,4 +1,4 @@
-# Tranquil Stays
+# Serenity Hotel, Resort, and Restaurant Management
 
 This is a Next.js application for Tranquil Stays, a luxury hotel experience.
 
