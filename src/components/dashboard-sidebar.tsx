@@ -2,7 +2,7 @@
 'use client'
 
 import Link from 'next/link';
-import { LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, Hotel, BedDouble, CreditCard, Sparkles, UserCog, UtensilsCrossed, ClipboardList, Armchair, ChefHat, Boxes, Share2, LayoutTemplate, Star, Image as ImageIcon } from 'lucide-react';
+import { LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, Hotel, BedDouble, CreditCard, Sparkles, UserCog, UtensilsCrossed, ClipboardList, Armchair, ChefHat, Boxes, Share2, LayoutTemplate, Star, Image as ImageIcon, TrendingUp } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import type { Locale } from '@/config/i18n-config';
@@ -26,6 +26,7 @@ export function DashboardSidebar({ dictionary, lang }: { dictionary: any, lang: 
         { href: `/${lang}/dashboard/restaurant/orders`, label: dictionary.restaurantOrderManagement, icon: ClipboardList },
         { href: `/${lang}/dashboard/restaurant/tables`, label: dictionary.restaurantTables, icon: Armchair },
         { href: `/${lang}/dashboard/restaurant/kitchen`, label: dictionary.restaurantKitchen, icon: ChefHat },
+        { href: `/${lang}/dashboard/restaurant/analytics`, label: dictionary.restaurantAnalytics, icon: TrendingUp },
     ];
 
     const siteManagementNav = [

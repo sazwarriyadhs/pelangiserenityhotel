@@ -116,6 +116,7 @@
         "restaurantOrderManagement": "Manajemen Pesanan",
         "restaurantTables": "Manajemen Meja",
         "restaurantKitchen": "Tampilan Dapur",
+        "restaurantAnalytics": "Analitik",
         "siteManagement": "Manajemen Situs",
         "homepage": "Halaman Utama",
         "testimonials": "Testimoni",
@@ -602,6 +603,27 @@
             "toast": {
                 "statusUpdated": "Status Pesanan Diperbarui",
                 "orderStatusNow": "Pesanan {orderId} diperbarui menjadi {status}."
+            }
+        },
+        "analyticsPage": {
+            "title": "Analitik Restoran",
+            "description": "Lihat metrik utama dan kinerja untuk restoran.",
+            "stats": {
+                "totalOrders": "Total Pesanan (Bulan Ini)",
+                "totalRevenue": "Total Pendapatan (Bulan Ini)",
+                "avgOrderValue": "Nilai Pesanan Rata-Rata"
+            },
+            "charts": {
+                "salesByCategory": "Penjualan berdasarkan Kategori Menu",
+                "dailyOrders": "Pesanan Harian (7 Hari Terakhir)",
+                "sales": "Penjualan",
+                "orders": "Pesanan"
+            },
+            "categories": {
+                "Breakfast": "Sarapan",
+                "Lunch": "Makan Siang",
+                "Dinner": "Makan Malam",
+                "Drinks": "Minuman"
             }
         }
     },

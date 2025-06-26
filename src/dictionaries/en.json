@@ -116,6 +116,7 @@
         "restaurantOrderManagement": "Order Management",
         "restaurantTables": "Table Management",
         "restaurantKitchen": "Kitchen Display",
+        "restaurantAnalytics": "Analytics",
         "siteManagement": "Site Management",
         "homepage": "Homepage",
         "testimonials": "Testimonials",
@@ -602,6 +603,27 @@
             "toast": {
                 "statusUpdated": "Order Status Updated",
                 "orderStatusNow": "Order {orderId} status updated to {status}."
+            }
+        },
+        "analyticsPage": {
+            "title": "Restaurant Analytics",
+            "description": "View key metrics and performance for the restaurant.",
+            "stats": {
+                "totalOrders": "Total Orders (This Month)",
+                "totalRevenue": "Total Revenue (This Month)",
+                "avgOrderValue": "Avg. Order Value"
+            },
+            "charts": {
+                "salesByCategory": "Sales by Menu Category",
+                "dailyOrders": "Daily Orders (Last 7 Days)",
+                "sales": "Sales",
+                "orders": "Orders"
+            },
+            "categories": {
+                "Breakfast": "Breakfast",
+                "Lunch": "Lunch",
+                "Dinner": "Dinner",
+                "Drinks": "Drinks"
             }
         }
     },
