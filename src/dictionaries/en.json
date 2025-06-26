@@ -81,6 +81,7 @@
         "guests": "Guests",
         "payments": "Payments",
         "inventory": "Inventory",
+        "otaIntegrations": "OTA Integrations",
         "analytics": "Analytics",
         "staff": "Staff",
         "settings": "Settings",
@@ -427,6 +428,17 @@
                 "title": "Stock Updated",
                 "description": "Recorded {quantity} units of {type} for {itemName}."
             }
+        }
+    },
+    "otaPage": {
+        "title": "OTA Integration Management",
+        "description": "Connect and manage your Online Travel Agent (OTA) channels. This page is for administrators only.",
+        "cardDescription": "Manage your connection with {platformName}.",
+        "settings": "Settings",
+        "enableIntegration": "Enable",
+        "status": {
+            "connected": "Connected",
+            "disconnected": "Disconnected"
         }
     },
     "restaurant": {

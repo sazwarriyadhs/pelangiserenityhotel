@@ -81,6 +81,7 @@
         "guests": "Tamu",
         "payments": "Pembayaran",
         "inventory": "Inventaris",
+        "otaIntegrations": "Integrasi OTA",
         "analytics": "Analitik",
         "staff": "Staf",
         "settings": "Pengaturan",
@@ -427,6 +428,17 @@
                 "title": "Stok Diperbarui",
                 "description": "Mencatat {quantity} unit {type} untuk {itemName}."
             }
+        }
+    },
+    "otaPage": {
+        "title": "Manajemen Integrasi OTA",
+        "description": "Hubungkan dan kelola saluran Online Travel Agent (OTA) Anda. Halaman ini hanya untuk administrator.",
+        "cardDescription": "Kelola koneksi Anda dengan {platformName}.",
+        "settings": "Pengaturan",
+        "enableIntegration": "Aktifkan",
+        "status": {
+            "connected": "Terhubung",
+            "disconnected": "Terputus"
         }
     },
     "restaurant": {
