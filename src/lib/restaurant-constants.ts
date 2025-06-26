@@ -117,3 +117,24 @@ export const orders: Order[] = [
     { id: 'ORD-005', customer: 'Table 2', type: 'DineIn', status: 'Cancelled', amount: 78.00, date: '2024-07-29T11:00:00Z' },
     { id: 'ORD-006', customer: 'Bob Williams', type: 'TakeAway', status: 'Served', amount: 18.50, date: '2024-07-28T18:00:00Z' },
 ];
+
+
+export type TableStatus = 'Available' | 'Occupied' | 'Reserved';
+
+export type Table = {
+    id: string;
+    number: number;
+    capacity: number;
+    status: TableStatus;
+}
+
+export const initialTables: Table[] = [
+    { id: 'T1', number: 1, capacity: 2, status: 'Available' },
+    { id: 'T2', number: 2, capacity: 4, status: 'Occupied' },
+    { id: 'T3', number: 3, capacity: 2, status: 'Available' },
+    { id: 'T4', number: 4, capacity: 4, status: 'Reserved' },
+    { id: 'T5', number: 5, capacity: 6, status: 'Available' },
+    { id: 'T6', number: 6, capacity: 4, status: 'Available' },
+    { id: 'T7', number: 7, capacity: 8, status: 'Occupied' },
+    { id: 'T8', number: 8, capacity: 2, status: 'Available' },
+];

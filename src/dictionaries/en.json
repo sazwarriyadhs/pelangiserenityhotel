@@ -85,7 +85,8 @@
         "settings": "Settings",
         "restaurantManagement": "Restaurant",
         "restaurantMenu": "Menu Management",
-        "restaurantOrderManagement": "Order Management"
+        "restaurantOrderManagement": "Order Management",
+        "restaurantTables": "Table Management"
     },
     "title": "Dashboard",
     "stats": {
@@ -409,6 +410,44 @@
             "toast": {
                 "statusUpdated": "Order Status Updated",
                 "orderStatusNow": "Order {orderId} is now {status}."
+            }
+        },
+        "tableManagementPage": {
+            "title": "Table Management",
+            "description": "View and manage restaurant table status and reservations.",
+            "reserveTable": "Reserve Table",
+            "capacity": "Capacity: {count}",
+            "table": "Table",
+            "statuses": {
+                "Available": "Available",
+                "Occupied": "Occupied",
+                "Reserved": "Reserved"
+            },
+            "actions": {
+                "changeStatus": "Change Status",
+                "viewQr": "View QR Code"
+            },
+            "qrDialog": {
+                "title": "QR Code for Table {tableNumber}",
+                "description": "Scan this code to view the digital menu.",
+                "close": "Close"
+            },
+            "reserveDialog": {
+                "title": "Reserve a Table",
+                "description": "Select a table and fill in the customer details.",
+                "customerName": "Customer Name",
+                "tableNumber": "Table Number",
+                "selectAvailable": "Select an available table",
+                "submit": "Confirm Reservation",
+                "cancel": "Cancel",
+                "success": {
+                    "title": "Table Reserved",
+                    "description": "Table {tableNumber} has been reserved for {customerName}."
+                },
+                "errors": {
+                    "customerNameRequired": "Customer name is required.",
+                    "tableRequired": "Please select a table."
+                }
             }
         }
     }

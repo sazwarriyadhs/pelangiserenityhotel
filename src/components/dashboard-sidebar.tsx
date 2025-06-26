@@ -2,7 +2,7 @@
 'use client'
 
 import Link from 'next/link';
-import { LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, Hotel, BedDouble, CreditCard, Sparkles, UserCog, UtensilsCrossed, ClipboardList } from 'lucide-react';
+import { LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, Hotel, BedDouble, CreditCard, Sparkles, UserCog, UtensilsCrossed, ClipboardList, Armchair } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import type { Locale } from '@/config/i18n-config';
@@ -25,6 +25,7 @@ export function DashboardSidebar({ dictionary, lang }: { dictionary: any, lang: 
     const restaurantNav = [
         { href: `/${lang}/dashboard/restaurant/menu`, label: dictionary.restaurantMenu, icon: UtensilsCrossed },
         { href: `/${lang}/dashboard/restaurant/orders`, label: dictionary.restaurantOrderManagement, icon: ClipboardList },
+        { href: `/${lang}/dashboard/restaurant/tables`, label: dictionary.restaurantTables, icon: Armchair },
     ];
 
     const settingsNav = {

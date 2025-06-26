@@ -85,7 +85,8 @@
         "settings": "Pengaturan",
         "restaurantManagement": "Restoran",
         "restaurantMenu": "Manajemen Menu",
-        "restaurantOrderManagement": "Manajemen Pesanan"
+        "restaurantOrderManagement": "Manajemen Pesanan",
+        "restaurantTables": "Manajemen Meja"
     },
     "title": "Dasbor",
     "stats": {
@@ -409,6 +410,44 @@
             "toast": {
                 "statusUpdated": "Status Pesanan Diperbarui",
                 "orderStatusNow": "Pesanan {orderId} sekarang {status}."
+            }
+        },
+        "tableManagementPage": {
+            "title": "Manajemen Meja",
+            "description": "Lihat dan kelola status meja dan reservasi restoran.",
+            "reserveTable": "Reservasi Meja",
+            "capacity": "Kapasitas: {count}",
+            "table": "Meja",
+            "statuses": {
+                "Available": "Tersedia",
+                "Occupied": "Terisi",
+                "Reserved": "Dipesan"
+            },
+            "actions": {
+                "changeStatus": "Ubah Status",
+                "viewQr": "Lihat Kode QR"
+            },
+            "qrDialog": {
+                "title": "Kode QR untuk Meja {tableNumber}",
+                "description": "Pindai kode ini untuk melihat menu digital.",
+                "close": "Tutup"
+            },
+            "reserveDialog": {
+                "title": "Reservasi Meja",
+                "description": "Pilih meja dan isi detail pelanggan.",
+                "customerName": "Nama Pelanggan",
+                "tableNumber": "Nomor Meja",
+                "selectAvailable": "Pilih meja yang tersedia",
+                "submit": "Konfirmasi Reservasi",
+                "cancel": "Batal",
+                "success": {
+                    "title": "Meja Dipesan",
+                    "description": "Meja {tableNumber} telah dipesan untuk {customerName}."
+                },
+                "errors": {
+                    "customerNameRequired": "Nama pelanggan wajib diisi.",
+                    "tableRequired": "Silakan pilih meja."
+                }
             }
         }
     }
