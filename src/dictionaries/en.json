@@ -4,6 +4,7 @@
     "rooms": "Rooms",
     "booking": "Booking",
     "concierge": "Concierge",
+    "restaurant": "Restaurant",
     "dashboard": "Dashboard",
     "language": "Language",
     "currency": "Currency",
@@ -676,6 +677,10 @@
             "deleteSuccessTitle": "Image Deleted",
             "deleteSuccessDescription": "The image has been removed from the gallery."
         }
+    },
+    "restaurantPage": {
+      "title": "Our Culinary Experience",
+      "subtitle": "A culinary journey with the finest ingredients and an unforgettable ambiance, crafted by our world-class chefs."
     }
   },
   "accessDenied": {

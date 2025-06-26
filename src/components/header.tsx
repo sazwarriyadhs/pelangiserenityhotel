@@ -17,6 +17,7 @@ export function Header({ lang, dictionary }: { lang: Locale, dictionary: any }) 
               <Link href="/#rooms" className="transition-colors hover:text-primary">{dictionary.header.rooms}</Link>
               <Link href="/#booking" className="transition-colors hover:text-primary">{dictionary.header.booking}</Link>
               <Link href="/#concierge" className="transition-colors hover:text-primary">{dictionary.header.concierge}</Link>
+              <Link href={`/${lang}/restaurant`} className="transition-colors hover:text-primary">{dictionary.header.restaurant}</Link>
               <Link href={`/${lang}/dashboard`} className="transition-colors hover:text-primary">{dictionary.header.dashboard}</Link>
             </nav>
             <AuthSwitcher dictionary={dictionary.header} />

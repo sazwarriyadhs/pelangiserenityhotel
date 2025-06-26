@@ -4,6 +4,7 @@
     "rooms": "Kamar",
     "booking": "Pemesanan",
     "concierge": "Layanan Bantuan",
+    "restaurant": "Restoran",
     "dashboard": "Dasbor",
     "language": "Bahasa",
     "currency": "Mata Uang",
@@ -676,6 +677,10 @@
             "deleteSuccessTitle": "Gambar Dihapus",
             "deleteSuccessDescription": "Gambar telah dihapus dari galeri."
         }
+    },
+    "restaurantPage": {
+      "title": "Pengalaman Kuliner Kami",
+      "subtitle": "Sebuah perjalanan kuliner dengan bahan-bahan terbaik dan suasana tak terlupakan, diracik oleh koki kelas dunia kami."
     }
   },
   "accessDenied": {
