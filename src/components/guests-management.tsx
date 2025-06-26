@@ -1,35 +1,109 @@
 
 'use client'
 
+import { useState, useMemo } from 'react'
 import { useAuth } from '@/context/auth-provider'
 import { AccessDenied } from '@/components/access-denied'
 import type { Locale } from '@/config/i18n-config'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogFooter, DialogClose } from '@/components/ui/dialog'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { format } from 'date-fns'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { MoreHorizontal } from 'lucide-react'
 
-const mockGuests = [
-    { id: 'GST-001', name: 'Alice Johnson', email: 'alice@example.com', phone: '+1234567890', totalBookings: 3, lastVisit: '2024-07-28', avatar: '/avatars/01.png' },
-    { id: 'GST-002', name: 'Bob Williams', email: 'bob@example.com', phone: '+1987654321', totalBookings: 1, lastVisit: '2024-07-28', avatar: '/avatars/02.png' },
-    { id: 'GST-003', name: 'Charlie Brown', email: 'charlie@example.com', phone: '+1122334455', totalBookings: 5, lastVisit: '2024-07-27', avatar: '/avatars/03.png' },
-    { id: 'GST-004', name: 'Diana Prince', email: 'diana@example.com', phone: '+1555666777', totalBookings: 2, lastVisit: '2024-07-26', avatar: '/avatars/04.png' },
-    { id: 'GST-005', name: 'Ethan Hunt', email: 'ethan@example.com', phone: '+1444333222', totalBookings: 1, lastVisit: '2024-07-25', avatar: '/avatars/05.png' },
+type BookingHistory = {
+    id: string;
+    room: string;
+    checkIn: string;
+    checkOut: string;
+    amount: number;
+    status: string;
+};
+
+type GuestWithHistory = {
+    id: string;
+    name: string;
+    email: string;
+    phone: string;
+    totalBookings: number;
+    lastVisit: string;
+    avatar: string;
+    joinDate: string;
+    notes: string;
+    bookingHistory: BookingHistory[];
+};
+
+const mockGuests: GuestWithHistory[] = [
+    { 
+        id: 'GST-001', name: 'Alice Johnson', email: 'alice@example.com', phone: '+1234567890', totalBookings: 3, lastVisit: '2024-07-28', avatar: 'https://placehold.co/100x100.png', joinDate: '2023-01-15', notes: 'Prefers a quiet room away from the elevator.',
+        bookingHistory: [
+            { id: 'BK-1294', room: 'Luxury King Suite', checkIn: '2024-07-26', checkOut: '2024-07-28', amount: 900, status: 'Completed' },
+            { id: 'BK-1120', room: 'Deluxe Queen Room', checkIn: '2023-12-20', checkOut: '2023-12-23', amount: 750, status: 'Completed' },
+            { id: 'BK-1055', room: 'Deluxe Queen Room', checkIn: '2023-01-15', checkOut: '2023-01-16', amount: 250, status: 'Completed' },
+        ]
+    },
+    { 
+        id: 'GST-002', name: 'Bob Williams', email: 'bob@example.com', phone: '+1987654321', totalBookings: 1, lastVisit: '2024-07-28', avatar: 'https://placehold.co/100x100.png', joinDate: '2024-07-28', notes: 'First time guest.',
+        bookingHistory: [
+            { id: 'BK-1293', room: 'Deluxe Queen Room', checkIn: '2024-07-28', checkOut: '2024-07-30', amount: 500, status: 'CheckedIn' },
+        ]
+    },
+    { 
+        id: 'GST-003', name: 'Charlie Brown', email: 'charlie@example.com', phone: '+1122334455', totalBookings: 5, lastVisit: '2024-07-27', avatar: 'https://placehold.co/100x100.png', joinDate: '2022-03-10', notes: 'VIP Guest. Likes a complimentary fruit basket upon arrival.',
+        bookingHistory: [
+            { id: 'BK-1292', room: 'Presidential Suite', checkIn: '2024-07-25', checkOut: '2024-07-27', amount: 2400, status: 'Completed' },
+            { id: 'BK-1105', room: 'Presidential Suite', checkIn: '2023-11-01', checkOut: '2023-11-05', amount: 4800, status: 'Completed' },
+        ]
+    },
+    { 
+        id: 'GST-004', name: 'Diana Prince', email: 'diana@example.com', phone: '+1555666777', totalBookings: 2, lastVisit: '2024-07-26', avatar: 'https://placehold.co/100x100.png', joinDate: '2023-08-19', notes: '',
+        bookingHistory: [
+            { id: 'BK-1291', room: 'Deluxe Queen Room', checkIn: '2024-07-24', checkOut: '2024-07-26', amount: 500, status: 'Completed' },
+        ]
+    },
+    { 
+        id: 'GST-005', name: 'Ethan Hunt', email: 'ethan@example.com', phone: '+1444333222', totalBookings: 1, lastVisit: '2024-07-25', avatar: 'https://placehold.co/100x100.png', joinDate: '2024-07-25', notes: 'Allergic to peanuts.',
+        bookingHistory: [
+            { id: 'BK-1290', room: 'Luxury King Suite', checkIn: '2024-07-23', checkOut: '2024-07-25', amount: 900, status: 'Completed' },
+        ]
+    },
 ];
 
 export function GuestsManagement({ dictionary, lang }: { dictionary: any, lang: Locale }) {
     const { user } = useAuth()
+    const [searchQuery, setSearchQuery] = useState('');
+    const [selectedGuest, setSelectedGuest] = useState<GuestWithHistory | null>(null);
     const isAuthorized = user && (user.role === 'admin' || user.role === 'staff')
 
+    const guestsDict = dictionary.dashboard.guestsPage;
+
+    const filteredGuests = useMemo(() => {
+        return mockGuests.filter(guest => 
+            guest.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+    }, [searchQuery]);
+    
     if (!isAuthorized) {
         return <AccessDenied dictionary={dictionary.accessDenied} lang={lang} />
     }
-    
-    const guestsDict = dictionary.dashboard.guestsPage;
 
     return (
         <div className="space-y-6">
             <h1 className="text-3xl font-bold tracking-tight font-headline text-primary">{guestsDict.title}</h1>
+            
+            <div className="mb-4">
+                <Input 
+                    placeholder={guestsDict.searchPlaceholder}
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="max-w-sm"
+                />
+            </div>
+
             <Card>
                 <CardHeader>
                     <CardTitle>{guestsDict.tableTitle}</CardTitle>
@@ -39,21 +113,20 @@ export function GuestsManagement({ dictionary, lang }: { dictionary: any, lang: 
                     <Table>
                         <TableHeader>
                             <TableRow>
-                                <TableHead>{guestsDict.headers.guestId}</TableHead>
                                 <TableHead>{guestsDict.headers.name}</TableHead>
                                 <TableHead>{guestsDict.headers.contact}</TableHead>
-                                <TableHead>{guestsDict.headers.totalBookings}</TableHead>
+                                <TableHead className="text-center">{guestsDict.headers.totalBookings}</TableHead>
                                 <TableHead>{guestsDict.headers.lastVisit}</TableHead>
+                                <TableHead><span className="sr-only">{guestsDict.actions}</span></TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {mockGuests.map((guest) => (
+                            {filteredGuests.map((guest) => (
                                 <TableRow key={guest.id}>
-                                    <TableCell className="font-medium">{guest.id}</TableCell>
                                     <TableCell>
                                         <div className="flex items-center gap-3">
                                             <Avatar className="h-9 w-9">
-                                                <AvatarImage src={guest.avatar} alt={guest.name} />
+                                                <AvatarImage src={guest.avatar} alt={guest.name} data-ai-hint="avatar person" />
                                                 <AvatarFallback>{guest.name.charAt(0)}</AvatarFallback>
                                             </Avatar>
                                             <div className="font-medium">{guest.name}</div>
@@ -65,12 +138,88 @@ export function GuestsManagement({ dictionary, lang }: { dictionary: any, lang: 
                                     </TableCell>
                                     <TableCell className="text-center">{guest.totalBookings}</TableCell>
                                     <TableCell>{format(new Date(guest.lastVisit), 'LLL dd, y')}</TableCell>
+                                    <TableCell>
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger asChild>
+                                                <Button aria-haspopup="true" size="icon" variant="ghost">
+                                                    <MoreHorizontal className="h-4 w-4" />
+                                                    <span className="sr-only">{guestsDict.actions}</span>
+                                                </Button>
+                                            </DropdownMenuTrigger>
+                                            <DropdownMenuContent align="end">
+                                                <DropdownMenuItem onClick={() => setSelectedGuest(guest)}>
+                                                    {guestsDict.actionsMenu.viewDetails}
+                                                </DropdownMenuItem>
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
+                                    </TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
                     </Table>
                 </CardContent>
             </Card>
+
+            <Dialog open={!!selectedGuest} onOpenChange={(isOpen) => !isOpen && setSelectedGuest(null)}>
+                <DialogContent className="sm:max-w-3xl">
+                    <DialogHeader>
+                        <DialogTitle>{guestsDict.detailsDialog.title}: {selectedGuest?.name}</DialogTitle>
+                        <DialogDescription>
+                            {guestsDict.detailsDialog.guestSince} {selectedGuest ? format(new Date(selectedGuest.joinDate), 'LLL dd, y') : ''}.
+                        </DialogDescription>
+                    </DialogHeader>
+                    {selectedGuest && (
+                        <div className="grid gap-6 py-4">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div className="md:col-span-1 flex flex-col items-center">
+                                    <Avatar className="h-24 w-24 mb-2">
+                                        <AvatarImage src={selectedGuest.avatar} alt={selectedGuest.name} data-ai-hint="avatar person"/>
+                                        <AvatarFallback>{selectedGuest.name.charAt(0)}</AvatarFallback>
+                                    </Avatar>
+                                    <p className="text-sm text-muted-foreground">{selectedGuest.id}</p>
+                                </div>
+                                <div className="md:col-span-2 space-y-2">
+                                    <h3 className="text-lg font-semibold">{guestsDict.detailsDialog.contactInfo}</h3>
+                                    <p className="text-sm"><strong>{guestsDict.detailsDialog.email}:</strong> {selectedGuest.email}</p>
+                                    <p className="text-sm"><strong>{guestsDict.detailsDialog.phone}:</strong> {selectedGuest.phone}</p>
+                                    <h3 className="text-lg font-semibold mt-4">{guestsDict.detailsDialog.notes}</h3>
+                                    <p className="text-sm text-muted-foreground">{selectedGuest.notes || 'No notes for this guest.'}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">{guestsDict.detailsDialog.bookingHistoryTitle}</h3>
+                                <div className="border rounded-md">
+                                    <Table>
+                                        <TableHeader>
+                                            <TableRow>
+                                                <TableHead>{guestsDict.detailsDialog.historyHeaders.bookingId}</TableHead>
+                                                <TableHead>{guestsDict.detailsDialog.historyHeaders.room}</TableHead>
+                                                <TableHead>{guestsDict.detailsDialog.historyHeaders.dates}</TableHead>
+                                                <TableHead className="text-right">{guestsDict.detailsDialog.historyHeaders.amount}</TableHead>
+                                            </TableRow>
+                                        </TableHeader>
+                                        <TableBody>
+                                            {selectedGuest.bookingHistory.map(booking => (
+                                                <TableRow key={booking.id}>
+                                                    <TableCell>{booking.id}</TableCell>
+                                                    <TableCell>{booking.room}</TableCell>
+                                                    <TableCell>{format(new Date(booking.checkIn), 'PP')} - {format(new Date(booking.checkOut), 'PP')}</TableCell>
+                                                    <TableCell className="text-right">${booking.amount.toLocaleString()}</TableCell>
+                                                </TableRow>
+                                            ))}
+                                        </TableBody>
+                                    </Table>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    <DialogFooter>
+                        <DialogClose asChild>
+                            <Button type="button" variant="secondary">{guestsDict.detailsDialog.close}</Button>
+                        </DialogClose>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
         </div>
     )
 }

@@ -163,12 +163,33 @@
       "title": "Manage Guests",
       "tableTitle": "All Guests",
       "tableDescription": "A list of all guests who have stayed at the hotel.",
+      "searchPlaceholder": "Search by guest name...",
+      "actions": "Actions",
+      "actionsMenu": {
+          "viewDetails": "View Details"
+      },
       "headers": {
         "guestId": "Guest ID",
         "name": "Name",
         "contact": "Contact",
         "totalBookings": "Total Bookings",
         "lastVisit": "Last Visit"
+      },
+      "detailsDialog": {
+          "title": "Guest Details",
+          "guestSince": "Guest since",
+          "contactInfo": "Contact Information",
+          "email": "Email",
+          "phone": "Phone",
+          "notes": "Notes",
+          "bookingHistoryTitle": "Booking History",
+          "historyHeaders": {
+              "bookingId": "Booking ID",
+              "room": "Room",
+              "dates": "Dates",
+              "amount": "Amount"
+          },
+          "close": "Close"
       }
     },
     "roomsPage": {

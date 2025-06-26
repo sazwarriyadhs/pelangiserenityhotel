@@ -163,12 +163,33 @@
       "title": "Kelola Tamu",
       "tableTitle": "Semua Tamu",
       "tableDescription": "Daftar semua tamu yang pernah menginap di hotel.",
+      "searchPlaceholder": "Cari berdasarkan nama tamu...",
+      "actions": "Aksi",
+      "actionsMenu": {
+        "viewDetails": "Lihat Detail"
+      },
       "headers": {
         "guestId": "ID Tamu",
         "name": "Nama",
         "contact": "Kontak",
         "totalBookings": "Total Pemesanan",
         "lastVisit": "Kunjungan Terakhir"
+      },
+      "detailsDialog": {
+        "title": "Detail Tamu",
+        "guestSince": "Tamu sejak",
+        "contactInfo": "Informasi Kontak",
+        "email": "Email",
+        "phone": "Telepon",
+        "notes": "Catatan",
+        "bookingHistoryTitle": "Riwayat Pemesanan",
+        "historyHeaders": {
+            "bookingId": "ID Pesanan",
+            "room": "Kamar",
+            "dates": "Tanggal",
+            "amount": "Jumlah"
+        },
+        "close": "Tutup"
       }
     },
      "roomsPage": {
