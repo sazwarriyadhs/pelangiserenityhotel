@@ -1,5 +1,3 @@
-// This file is machine-generated - edit with care!
-
 'use server';
 
 /**
@@ -20,6 +18,9 @@ const LocalAttractionRecommendationInputSchema = z.object({
   hotelLocation: z
     .string()
     .describe('The location of the hotel (e.g., address or city, state).'),
+  language: z
+    .string()
+    .describe('The language for the response (e.g., English, Indonesian).'),
 });
 export type LocalAttractionRecommendationInput = z.infer<typeof LocalAttractionRecommendationInputSchema>;
 
@@ -42,10 +43,12 @@ const prompt = ai.definePrompt({
   output: {schema: LocalAttractionRecommendationOutputSchema},
   prompt: `You are an AI concierge at a luxury hotel. A guest has requested recommendations for local attractions near the hotel.
 
+  Respond in the following language: {{{language}}}.
+
   Hotel Location: {{{hotelLocation}}}
   Guest Interests: {{{interests}}}
 
-  Based on the guest\'s interests and the hotel\'s location, provide a list of personalized recommendations for local attractions.`,
+  Based on the guest's interests and the hotel's location, provide a list of personalized recommendations for local attractions.`,
 });
 
 const recommendLocalAttractionsFlow = ai.defineFlow(

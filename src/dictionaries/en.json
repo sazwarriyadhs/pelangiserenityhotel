@@ -1,0 +1,60 @@
+
+{
+  "header": {
+    "rooms": "Rooms",
+    "booking": "Booking",
+    "concierge": "Concierge",
+    "language": "Language",
+    "currency": "Currency",
+    "languages": {
+        "en": "English",
+        "id": "Bahasa Indonesia"
+    },
+    "currencies": {
+        "usd": "US Dollar (US$)",
+        "idr": "Indonesian Rupiah (IDR)"
+    }
+  },
+  "hero": {
+    "title": "Tranquil Stays",
+    "subtitle": "Where luxury meets tranquility. Your exclusive escape awaits.",
+    "button": "Book Your Stay"
+  },
+  "rooms": {
+    "title": "Our Accommodations",
+    "subtitle": "Each of our rooms and suites is designed with your comfort and luxury in mind.",
+    "bookNow": "Book Now",
+    "perNight": "/night"
+  },
+  "booking": {
+    "title": "Book Your Stay",
+    "subtitle": "Select your dates and room to begin your journey to tranquility.",
+    "roomType": "Room Type",
+    "selectRoom": "Select a room",
+    "errors": {
+        "roomRequired": "Please select a room type.",
+        "checkinRequired": "A check-in date is required.",
+        "checkoutRequired": "A check-out date is required.",
+        "datesRequired": "Please select your check-in and check-out dates."
+    },
+    "dates": "Check-in & Check-out",
+    "pickDates": "Pick your dates",
+    "button": "Confirm Booking",
+    "successTitle": "Booking Confirmed!",
+    "successDescription": "Your {roomType} is booked from {from} to {to}. An email confirmation has been sent."
+  },
+  "concierge": {
+    "title": "AI Concierge",
+    "subtitle": "Let our AI assistant help you plan the perfect trip.",
+    "interestsLabel": "Your Interests",
+    "interestsPlaceholder": "e.g., fine dining, modern art, live music, parks...",
+    "interestsError": "Please tell us a bit more about your interests.",
+    "button": "Get Recommendations",
+    "buttonLoading": "Generating...",
+    "error": "We encountered an issue getting your recommendations. Please try again later.",
+    "recommendationsTitle": "Your Personalized Recommendations"
+  },
+  "footer": {
+    "copyright": "© {year} Tranquil Stays. All Rights Reserved."
+  }
+}

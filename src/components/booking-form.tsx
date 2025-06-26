@@ -32,26 +32,28 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { rooms } from "@/lib/constants";
 
-const bookingFormSchema = z.object({
+const getBookingFormSchema = (dictionary: any) => z.object({
   roomType: z.string({
-    required_error: "Please select a room type.",
+    required_error: dictionary.errors.roomRequired,
   }),
   dates: z.object({
       from: z.date({
-        required_error: "A check-in date is required.",
+        required_error: dictionary.errors.checkinRequired,
       }),
       to: z.date({
-        required_error: "A check-out date is required.",
+        required_error: dictionary.errors.checkoutRequired,
       }),
     },
     {
-      required_error: "Please select your check-in and check-out dates.",
+      required_error: dictionary.errors.datesRequired,
     }
   ),
 });
 
-export function BookingForm() {
+export function BookingForm({ dictionary }: { dictionary: any }) {
   const { toast } = useToast();
+  
+  const bookingFormSchema = getBookingFormSchema(dictionary);
 
   const form = useForm<z.infer<typeof bookingFormSchema>>({
     resolver: zodResolver(bookingFormSchema),
@@ -59,8 +61,11 @@ export function BookingForm() {
 
   function onSubmit(data: z.infer<typeof bookingFormSchema>) {
     toast({
-      title: "Booking Confirmed!",
-      description: `Your ${data.roomType} is booked from ${format(data.dates.from, "PPP")} to ${format(data.dates.to, "PPP")}. An email confirmation has been sent.`,
+      title: dictionary.successTitle,
+      description: dictionary.successDescription
+        .replace('{roomType}', data.roomType)
+        .replace('{from}', format(data.dates.from, "PPP"))
+        .replace('{to}', format(data.dates.to, "PPP")),
     });
     form.reset();
   }
@@ -73,11 +78,11 @@ export function BookingForm() {
           name="roomType"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Room Type</FormLabel>
+              <FormLabel>{dictionary.roomType}</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a room" />
+                    <SelectValue placeholder={dictionary.selectRoom} />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
@@ -97,7 +102,7 @@ export function BookingForm() {
           name="dates"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <FormLabel>Check-in & Check-out</FormLabel>
+              <FormLabel>{dictionary.dates}</FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
@@ -119,7 +124,7 @@ export function BookingForm() {
                           format(field.value.from, "LLL dd, y")
                         )
                       ) : (
-                        <span>Pick your dates</span>
+                        <span>{dictionary.pickDates}</span>
                       )}
                     </Button>
                   </FormControl>
@@ -141,7 +146,7 @@ export function BookingForm() {
           )}
         />
         <Button type="submit" className="w-full">
-          Confirm Booking
+          {dictionary.button}
         </Button>
       </form>
     </Form>

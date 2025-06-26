@@ -11,17 +11,20 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sparkles } from "lucide-react";
+import type { Locale } from "@/config/i18n-config";
 
-const conciergeFormSchema = z.object({
+const getConciergeFormSchema = (dictionary: any) => z.object({
   interests: z.string().min(10, {
-    message: "Please tell us a bit more about your interests.",
+    message: dictionary.interestsError,
   }),
 });
 
-export function AiConcierge() {
+export function AiConcierge({ dictionary, lang }: { dictionary: any, lang: Locale }) {
   const [recommendation, setRecommendation] = useState<LocalAttractionRecommendationOutput | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  
+  const conciergeFormSchema = getConciergeFormSchema(dictionary);
 
   const form = useForm<z.infer<typeof conciergeFormSchema>>({
     resolver: zodResolver(conciergeFormSchema),
@@ -38,10 +41,11 @@ export function AiConcierge() {
       const result = await recommendLocalAttractions({
         interests: values.interests,
         hotelLocation: "Beverly Hills, CA",
+        language: lang === 'id' ? 'Indonesian' : 'English'
       });
       setRecommendation(result);
     } catch (e) {
-      setError("We encountered an issue getting your recommendations. Please try again later.");
+      setError(dictionary.error);
     } finally {
       setIsLoading(false);
     }
@@ -56,10 +60,10 @@ export function AiConcierge() {
             name="interests"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-foreground">Your Interests</FormLabel>
+                <FormLabel className="text-foreground">{dictionary.interestsLabel}</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="e.g., fine dining, modern art, live music, parks..."
+                    placeholder={dictionary.interestsPlaceholder}
                     className="resize-none"
                     {...field}
                   />
@@ -69,7 +73,7 @@ export function AiConcierge() {
             )}
           />
           <Button type="submit" disabled={isLoading} className="w-full">
-            {isLoading ? "Generating..." : "Get Recommendations"}
+            {isLoading ? dictionary.buttonLoading : dictionary.button}
             {!isLoading && <Sparkles className="ml-2 h-4 w-4" />}
           </Button>
         </form>
@@ -82,7 +86,7 @@ export function AiConcierge() {
           <CardHeader>
             <CardTitle className="text-primary flex items-center gap-2">
               <Sparkles />
-              Your Personalized Recommendations
+              {dictionary.recommendationsTitle}
             </CardTitle>
           </CardHeader>
           <CardContent>

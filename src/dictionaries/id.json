@@ -1,0 +1,60 @@
+
+{
+  "header": {
+    "rooms": "Kamar",
+    "booking": "Pemesanan",
+    "concierge": "Layanan Bantuan",
+    "language": "Bahasa",
+    "currency": "Mata Uang",
+    "languages": {
+        "en": "English",
+        "id": "Bahasa Indonesia"
+    },
+    "currencies": {
+        "usd": "Dolar Amerika (US$)",
+        "idr": "Rupiah Indonesia (IDR)"
+    }
+  },
+  "hero": {
+    "title": "Tranquil Stays",
+    "subtitle": "Di mana kemewahan bertemu ketenangan. Pelarian eksklusif Anda menanti.",
+    "button": "Pesan Penginapan Anda"
+  },
+  "rooms": {
+    "title": "Akomodasi Kami",
+    "subtitle": "Setiap kamar dan suite kami dirancang dengan mempertimbangkan kenyamanan dan kemewahan Anda.",
+    "bookNow": "Pesan Sekarang",
+    "perNight": "/malam"
+  },
+  "booking": {
+    "title": "Pesan Penginapan Anda",
+    "subtitle": "Pilih tanggal dan kamar Anda untuk memulai perjalanan menuju ketenangan.",
+    "roomType": "Tipe Kamar",
+    "selectRoom": "Pilih kamar",
+    "errors": {
+        "roomRequired": "Silakan pilih tipe kamar.",
+        "checkinRequired": "Tanggal check-in wajib diisi.",
+        "checkoutRequired": "Tanggal check-out wajib diisi.",
+        "datesRequired": "Silakan pilih tanggal check-in dan check-out Anda."
+    },
+    "dates": "Check-in & Check-out",
+    "pickDates": "Pilih tanggal Anda",
+    "button": "Konfirmasi Pemesanan",
+    "successTitle": "Pemesanan Dikonfirmasi!",
+    "successDescription": "{roomType} Anda telah dipesan dari {from} hingga {to}. Konfirmasi email telah dikirim."
+  },
+  "concierge": {
+    "title": "Layanan Bantuan AI",
+    "subtitle": "Biarkan asisten AI kami membantu Anda merencanakan perjalanan yang sempurna.",
+    "interestsLabel": "Minat Anda",
+    "interestsPlaceholder": "misalnya, santapan lezat, seni modern, musik live, taman...",
+    "interestsError": "Tolong beri tahu kami lebih banyak tentang minat Anda.",
+    "button": "Dapatkan Rekomendasi",
+    "buttonLoading": "Menghasilkan...",
+    "error": "Kami mengalami masalah saat mendapatkan rekomendasi Anda. Silakan coba lagi nanti.",
+    "recommendationsTitle": "Rekomendasi Pribadi Anda"
+  },
+  "footer": {
+    "copyright": "© {year} Tranquil Stays. Hak Cipta Dilindungi Undang-Undang."
+  }
+}
