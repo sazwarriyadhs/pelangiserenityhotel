@@ -86,7 +86,8 @@
         "restaurantManagement": "Restoran",
         "restaurantMenu": "Manajemen Menu",
         "restaurantOrderManagement": "Manajemen Pesanan",
-        "restaurantTables": "Manajemen Meja"
+        "restaurantTables": "Manajemen Meja",
+        "restaurantKitchen": "Tampilan Dapur"
     },
     "title": "Dasbor",
     "stats": {
@@ -448,6 +449,24 @@
                     "customerNameRequired": "Nama pelanggan wajib diisi.",
                     "tableRequired": "Silakan pilih meja."
                 }
+            }
+        },
+        "kitchenDisplayPage": {
+            "title": "Tampilan Dapur",
+            "description": "Tampilan pesanan real-time untuk staf dapur.",
+            "newOrders": "Pesanan Baru",
+            "inProgress": "Sedang Diproses",
+            "readyForPickup": "Siap Diambil",
+            "noOrders": "Tidak ada pesanan dalam kategori ini.",
+            "pickupInstructions": "Pesanan yang sudah selesai akan dihapus dari tampilan ini. Staf harus segera menyajikan hidangan.",
+            "orderId": "Pesanan",
+            "customer": "Pelanggan",
+            "items": "Item",
+            "startCooking": "Mulai Masak",
+            "markAsReady": "Tandai Siap",
+            "toast": {
+                "statusUpdated": "Status Pesanan Diperbarui",
+                "orderStatusNow": "Status pesanan {orderId} diperbarui menjadi {status}."
             }
         }
     }

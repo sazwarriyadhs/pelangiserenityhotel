@@ -99,6 +99,11 @@ export const menuItems: MenuItem[] = [
 
 export type OrderStatus = 'Pending' | 'InProgress' | 'Served' | 'Cancelled';
 export type OrderType = 'DineIn' | 'TakeAway' | 'RoomService';
+export type OrderItem = {
+    id: string;
+    name: string;
+    quantity: number;
+}
 
 export type Order = {
     id: string;
@@ -107,15 +112,51 @@ export type Order = {
     status: OrderStatus;
     amount: number;
     date: string;
+    items: OrderItem[];
 }
 
 export const orders: Order[] = [
-    { id: 'ORD-001', customer: 'Room 201', type: 'RoomService', status: 'Served', amount: 55.50, date: '2024-07-29T10:00:00Z' },
-    { id: 'ORD-002', customer: 'Table 5', type: 'DineIn', status: 'InProgress', amount: 120.00, date: '2024-07-29T12:30:00Z' },
-    { id: 'ORD-003', customer: 'Alice Johnson', type: 'TakeAway', status: 'Pending', amount: 32.00, date: '2024-07-29T13:00:00Z' },
-    { id: 'ORD-004', customer: 'Room 102', type: 'RoomService', status: 'Pending', amount: 25.00, date: '2024-07-29T14:15:00Z' },
-    { id: 'ORD-005', customer: 'Table 2', type: 'DineIn', status: 'Cancelled', amount: 78.00, date: '2024-07-29T11:00:00Z' },
-    { id: 'ORD-006', customer: 'Bob Williams', type: 'TakeAway', status: 'Served', amount: 18.50, date: '2024-07-28T18:00:00Z' },
+    { 
+        id: 'ORD-001', customer: 'Room 201', type: 'RoomService', status: 'Served', amount: 55.50, date: '2024-07-29T10:00:00Z', 
+        items: [
+            { id: 'D-001', name: 'Filet Mignon', quantity: 1 },
+            { id: 'K-002', name: 'Old Fashioned', quantity: 1 },
+        ] 
+    },
+    { 
+        id: 'ORD-002', customer: 'Table 5', type: 'DineIn', status: 'InProgress', amount: 120.00, date: '2024-07-29T12:30:00Z',
+        items: [
+            { id: 'D-003', name: 'Lobster Ravioli', quantity: 2 },
+            { id: 'L-002', name: 'Caesar Salad', quantity: 2 },
+            { id: 'K-002', name: 'Old Fashioned', quantity: 2 },
+        ]
+    },
+    { 
+        id: 'ORD-003', customer: 'Alice Johnson', type: 'TakeAway', status: 'Pending', amount: 32.00, date: '2024-07-29T13:00:00Z',
+        items: [
+            { id: 'L-001', name: 'Grilled Chicken Sandwich', quantity: 1 },
+            { id: 'L-002', name: 'Caesar Salad', quantity: 1 },
+        ]
+    },
+    { 
+        id: 'ORD-004', customer: 'Room 102', type: 'RoomService', status: 'Pending', amount: 25.00, date: '2024-07-29T14:15:00Z',
+        items: [
+            { id: 'B-002', name: 'Avocado Toast', quantity: 2 },
+        ]
+    },
+    { 
+        id: 'ORD-005', customer: 'Table 2', type: 'DineIn', status: 'Cancelled', amount: 78.00, date: '2024-07-29T11:00:00Z',
+        items: [
+            { id: 'D-002', name: 'Pan-Seared Salmon', quantity: 1 },
+            { id: 'D-001', name: 'Filet Mignon', quantity: 1 },
+        ]
+    },
+    { 
+        id: 'ORD-006', customer: 'Bob Williams', type: 'TakeAway', status: 'Served', amount: 18.50, date: '2024-07-28T18:00:00Z',
+        items: [
+            { id: 'L-001', name: 'Grilled Chicken Sandwich', quantity: 1 },
+        ]
+    },
 ];
 
 

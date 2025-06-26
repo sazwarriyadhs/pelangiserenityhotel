@@ -86,7 +86,8 @@
         "restaurantManagement": "Restaurant",
         "restaurantMenu": "Menu Management",
         "restaurantOrderManagement": "Order Management",
-        "restaurantTables": "Table Management"
+        "restaurantTables": "Table Management",
+        "restaurantKitchen": "Kitchen Display"
     },
     "title": "Dashboard",
     "stats": {
@@ -448,6 +449,24 @@
                     "customerNameRequired": "Customer name is required.",
                     "tableRequired": "Please select a table."
                 }
+            }
+        },
+        "kitchenDisplayPage": {
+            "title": "Kitchen Display",
+            "description": "Real-time view of orders for the kitchen staff.",
+            "newOrders": "New Orders",
+            "inProgress": "In Progress",
+            "readyForPickup": "Ready for Pickup",
+            "noOrders": "No orders in this category.",
+            "pickupInstructions": "Completed orders will be removed from this view. Staff should serve the dishes promptly.",
+            "orderId": "Order",
+            "customer": "Customer",
+            "items": "Items",
+            "startCooking": "Start Cooking",
+            "markAsReady": "Mark as Ready",
+            "toast": {
+                "statusUpdated": "Order Status Updated",
+                "orderStatusNow": "Order {orderId} status updated to {status}."
             }
         }
     }
