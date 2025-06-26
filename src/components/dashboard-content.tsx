@@ -1,3 +1,4 @@
+
 'use client'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -46,115 +47,113 @@ export function DashboardContent({ dictionary }: { dictionary: any }) {
     }
 
     return (
-        <main className="flex-1 p-4 md:p-8">
-            <div className="container">
-                <h1 className="text-3xl font-bold tracking-tight mb-8 font-headline text-primary">{dashboardDict.title}</h1>
+        <>
+            <h1 className="text-3xl font-bold tracking-tight font-headline text-primary">{dashboardDict.title}</h1>
 
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">{dashboardDict.stats.totalRevenue}</CardTitle>
-                            <DollarSign className="h-4 w-4 text-muted-foreground" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold">${totalRevenue.toLocaleString()}</div>
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">{dashboardDict.stats.totalBookings}</CardTitle>
-                            <BookOpenCheck className="h-4 w-4 text-muted-foreground" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold">+{totalBookings}</div>
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">{dashboardDict.stats.avgRating}</CardTitle>
-                            <Star className="h-4 w-4 text-muted-foreground" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold">{avgRating}/5.0</div>
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">{dashboardDict.stats.newGuests}</CardTitle>
-                            <Users className="h-4 w-4 text-muted-foreground" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold">+{newGuests}</div>
-                        </CardContent>
-                    </Card>
-                </div>
-
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-7 mb-8">
-                    <Card className="lg:col-span-4">
-                        <CardHeader>
-                            <CardTitle>{dashboardDict.charts.monthlyBookingsTitle}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <ChartContainer config={chartConfig} className="h-[300px] w-full">
-                                <BarChart data={monthlyBookings} accessibilityLayer>
-                                    <CartesianGrid vertical={false} />
-                                    <XAxis dataKey="month" tickLine={false} tickMargin={10} axisLine={false} />
-                                    <ChartTooltip content={<ChartTooltipContent />} />
-                                    <Bar dataKey="bookings" fill="var(--color-bookings)" radius={4} />
-                                </BarChart>
-                            </ChartContainer>
-                        </CardContent>
-                    </Card>
-                        <Card className="lg:col-span-3">
-                        <CardHeader>
-                            <CardTitle>{dashboardDict.charts.roomTypeDistributionTitle}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                                <ChartContainer config={{}} className="h-[300px] w-full">
-                                <PieChart>
-                                    <Tooltip content={<ChartTooltipContent hideLabel />} />
-                                    <Pie data={roomTypeBookings} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} label>
-                                        {roomTypeBookings.map((entry, index) => (
-                                            <Cell key={`cell-${index}`} fill={entry.fill} />
-                                        ))}
-                                    </Pie>
-                                    <ChartLegend content={<ChartLegendContent nameKey="name" />} />
-                                </PieChart>
-                            </ChartContainer>
-                        </CardContent>
-                    </Card>
-                </div>
-
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                 <Card>
-                    <CardHeader>
-                        <CardTitle>{dashboardDict.recentBookings.title}</CardTitle>
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardTitle className="text-sm font-medium">{dashboardDict.stats.totalRevenue}</CardTitle>
+                        <DollarSign className="h-4 w-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
-                        <Table>
-                            <TableHeader>
-                                <TableRow>
-                                    <TableHead>{dashboardDict.recentBookings.bookingId}</TableHead>
-                                    <TableHead>{dashboardDict.recentBookings.guest}</TableHead>
-                                    <TableHead>{dashboardDict.recentBookings.roomType}</TableHead>
-                                    <TableHead>{dashboardDict.recentBookings.date}</TableHead>
-                                    <TableHead className="text-right">{dashboardDict.recentBookings.amount}</TableHead>
-                                </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                                {recentBookings.map((booking) => (
-                                    <TableRow key={booking.id}>
-                                        <TableCell className="font-medium">{booking.id}</TableCell>
-                                        <TableCell>{booking.guest}</TableCell>
-                                        <TableCell>{booking.room}</TableCell>
-                                        <TableCell>{booking.date}</TableCell>
-                                        <TableCell className="text-right">${booking.amount.toLocaleString()}</TableCell>
-                                    </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
+                        <div className="text-2xl font-bold">${totalRevenue.toLocaleString()}</div>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardTitle className="text-sm font-medium">{dashboardDict.stats.totalBookings}</CardTitle>
+                        <BookOpenCheck className="h-4 w-4 text-muted-foreground" />
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">+{totalBookings}</div>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardTitle className="text-sm font-medium">{dashboardDict.stats.avgRating}</CardTitle>
+                        <Star className="h-4 w-4 text-muted-foreground" />
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">{avgRating}/5.0</div>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardTitle className="text-sm font-medium">{dashboardDict.stats.newGuests}</CardTitle>
+                        <Users className="h-4 w-4 text-muted-foreground" />
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">+{newGuests}</div>
                     </CardContent>
                 </Card>
             </div>
-        </main>
+
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-7">
+                <Card className="lg:col-span-4">
+                    <CardHeader>
+                        <CardTitle>{dashboardDict.charts.monthlyBookingsTitle}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <ChartContainer config={chartConfig} className="h-[300px] w-full">
+                            <BarChart data={monthlyBookings} accessibilityLayer>
+                                <CartesianGrid vertical={false} />
+                                <XAxis dataKey="month" tickLine={false} tickMargin={10} axisLine={false} />
+                                <ChartTooltip content={<ChartTooltipContent />} />
+                                <Bar dataKey="bookings" fill="var(--color-bookings)" radius={4} />
+                            </BarChart>
+                        </ChartContainer>
+                    </CardContent>
+                </Card>
+                    <Card className="lg:col-span-3">
+                    <CardHeader>
+                        <CardTitle>{dashboardDict.charts.roomTypeDistributionTitle}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                            <ChartContainer config={{}} className="h-[300px] w-full">
+                            <PieChart>
+                                <Tooltip content={<ChartTooltipContent hideLabel />} />
+                                <Pie data={roomTypeBookings} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} label>
+                                    {roomTypeBookings.map((entry, index) => (
+                                        <Cell key={`cell-${index}`} fill={entry.fill} />
+                                    ))}
+                                </Pie>
+                                <ChartLegend content={<ChartLegendContent nameKey="name" />} />
+                            </PieChart>
+                        </ChartContainer>
+                    </CardContent>
+                </Card>
+            </div>
+
+            <Card>
+                <CardHeader>
+                    <CardTitle>{dashboardDict.recentBookings.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead>{dashboardDict.recentBookings.bookingId}</TableHead>
+                                <TableHead>{dashboardDict.recentBookings.guest}</TableHead>
+                                <TableHead>{dashboardDict.recentBookings.roomType}</TableHead>
+                                <TableHead>{dashboardDict.recentBookings.date}</TableHead>
+                                <TableHead className="text-right">{dashboardDict.recentBookings.amount}</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {recentBookings.map((booking) => (
+                                <TableRow key={booking.id}>
+                                    <TableCell className="font-medium">{booking.id}</TableCell>
+                                    <TableCell>{booking.guest}</TableCell>
+                                    <TableCell>{booking.room}</TableCell>
+                                    <TableCell>{booking.date}</TableCell>
+                                    <TableCell className="text-right">${booking.amount.toLocaleString()}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </CardContent>
+            </Card>
+        </>
     )
 }

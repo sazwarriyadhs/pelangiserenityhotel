@@ -72,6 +72,13 @@
         "title": "Admin Dashboard",
         "viewSite": "View Site"
     },
+    "sidebar": {
+        "overview": "Overview",
+        "bookings": "Bookings",
+        "guests": "Guests",
+        "analytics": "Analytics",
+        "settings": "Settings"
+    },
     "title": "Dashboard",
     "stats": {
         "totalRevenue": "Total Revenue",

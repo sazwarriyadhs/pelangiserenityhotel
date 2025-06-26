@@ -72,6 +72,13 @@
         "title": "Dasbor Admin",
         "viewSite": "Lihat Situs"
     },
+    "sidebar": {
+        "overview": "Gambaran Umum",
+        "bookings": "Pemesanan",
+        "guests": "Tamu",
+        "analytics": "Analitik",
+        "settings": "Pengaturan"
+    },
     "title": "Dasbor",
     "stats": {
       "totalRevenue": "Total Pendapatan",
