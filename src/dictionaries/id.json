@@ -87,12 +87,14 @@
         "otaIntegrations": "Integrasi OTA",
         "analytics": "Analitik",
         "staff": "Staf",
-        "settings": "Pengaturan",
         "restaurantManagement": "Restoran",
         "restaurantMenu": "Manajemen Menu",
         "restaurantOrderManagement": "Manajemen Pesanan",
         "restaurantTables": "Manajemen Meja",
-        "restaurantKitchen": "Tampilan Dapur"
+        "restaurantKitchen": "Tampilan Dapur",
+        "generalManagement": "Manajemen",
+        "website": "Situs Web",
+        "settings": "Pengaturan"
     },
     "title": "Dasbor",
     "stats": {
@@ -593,6 +595,20 @@
         "title": "Pengaturan Tersimpan",
         "description": "Perubahan Anda telah berhasil disimpan."
       }
+    },
+    "websitePage": {
+        "title": "Manajemen Situs Web",
+        "description": "Kontrol konten yang ditampilkan di situs web publik Anda.",
+        "heroSection": {
+            "title": "Bagian Hero",
+            "description": "Kelola bagian utama dari beranda Anda.",
+            "heroTitle": "Judul",
+            "heroSubtitle": "Subjudul",
+            "heroImageUrl": "URL Gambar Latar"
+        },
+        "saveChanges": "Simpan Perubahan",
+        "toastSuccessTitle": "Konten Tersimpan",
+        "toastSuccessDescription": "Konten situs web Anda telah diperbarui."
     }
   },
   "accessDenied": {

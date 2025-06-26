@@ -2,7 +2,7 @@
 'use client'
 
 import Link from 'next/link';
-import { LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, Hotel, BedDouble, CreditCard, Sparkles, UserCog, UtensilsCrossed, ClipboardList, Armchair, ChefHat, Boxes, Share2 } from 'lucide-react';
+import { LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, Hotel, BedDouble, CreditCard, Sparkles, UserCog, UtensilsCrossed, ClipboardList, Armchair, ChefHat, Boxes, Share2, LayoutTemplate } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import type { Locale } from '@/config/i18n-config';
@@ -31,11 +31,10 @@ export function DashboardSidebar({ dictionary, lang }: { dictionary: any, lang: 
         { href: `/${lang}/dashboard/restaurant/kitchen`, label: dictionary.restaurantKitchen, icon: ChefHat },
     ];
 
-    const settingsNav = {
-        href: `/${lang}/dashboard/settings`,
-        label: dictionary.settings,
-        icon: Settings
-    }
+    const managementNav = [
+        { href: `/${lang}/dashboard/website`, label: dictionary.website, icon: LayoutTemplate },
+        { href: `/${lang}/dashboard/settings`, label: dictionary.settings, icon: Settings }
+    ];
 
     return (
         <aside className="hidden border-r bg-background md:block">
@@ -77,20 +76,21 @@ export function DashboardSidebar({ dictionary, lang }: { dictionary: any, lang: 
                                 {item.label}
                             </Link>
                         ))}
-                    </nav>
-                </div>
-                <div className="mt-auto p-4 border-t">
-                    <nav className="grid items-start text-sm font-medium">
-                        <Link
-                            href={settingsNav.href}
-                            className={cn(
-                                "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
-                                pathname === settingsNav.href && "bg-muted text-primary"
-                            )}
-                        >
-                            <settingsNav.icon className="h-4 w-4" />
-                            {settingsNav.label}
-                        </Link>
+                         <Separator className="my-4" />
+                        <span className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{dictionary.generalManagement}</span>
+                         {managementNav.map((item) => (
+                            <Link
+                                key={item.label}
+                                href={item.href}
+                                className={cn(
+                                    "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
+                                    pathname.startsWith(item.href) && "bg-muted text-primary"
+                                )}
+                            >
+                                <item.icon className="h-4 w-4" />
+                                {item.label}
+                            </Link>
+                        ))}
                     </nav>
                 </div>
            </div>

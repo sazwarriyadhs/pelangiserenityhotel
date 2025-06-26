@@ -87,12 +87,14 @@
         "otaIntegrations": "OTA Integrations",
         "analytics": "Analytics",
         "staff": "Staff",
-        "settings": "Settings",
         "restaurantManagement": "Restaurant",
         "restaurantMenu": "Menu Management",
         "restaurantOrderManagement": "Order Management",
         "restaurantTables": "Table Management",
-        "restaurantKitchen": "Kitchen Display"
+        "restaurantKitchen": "Kitchen Display",
+        "generalManagement": "Management",
+        "website": "Website",
+        "settings": "Settings"
     },
     "title": "Dashboard",
     "stats": {
@@ -593,6 +595,20 @@
         "title": "Settings Saved",
         "description": "Your changes have been saved successfully."
       }
+    },
+    "websitePage": {
+        "title": "Website Management",
+        "description": "Control the content displayed on your public-facing website.",
+        "heroSection": {
+            "title": "Hero Section",
+            "description": "Manage the main section of your homepage.",
+            "heroTitle": "Title",
+            "heroSubtitle": "Subtitle",
+            "heroImageUrl": "Background Image URL"
+        },
+        "saveChanges": "Save Changes",
+        "toastSuccessTitle": "Content Saved",
+        "toastSuccessDescription": "Your website content has been updated."
     }
   },
   "accessDenied": {

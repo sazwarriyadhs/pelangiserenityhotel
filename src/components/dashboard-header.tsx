@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Hotel, Menu, LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, BedDouble, CreditCard, Sparkles, UserCog, UtensilsCrossed, ClipboardList, Armchair, ChefHat, Boxes, Share2 } from "lucide-react";
+import { Hotel, Menu, LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, BedDouble, CreditCard, Sparkles, UserCog, UtensilsCrossed, ClipboardList, Armchair, ChefHat, Boxes, Share2, LayoutTemplate } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LocaleSwitcher } from './locale-switcher'
@@ -37,8 +37,12 @@ export function DashboardHeader({ lang, dictionary }: { lang: Locale, dictionary
         { href: `/${lang}/dashboard/restaurant/tables`, label: navDict.restaurantTables, icon: Armchair },
         { href: `/${lang}/dashboard/restaurant/kitchen`, label: navDict.restaurantKitchen, icon: ChefHat },
     ];
+    
+    const managementNav = [
+      { href: `/${lang}/dashboard/website`, label: navDict.website, icon: LayoutTemplate },
+      { href: `/${lang}/dashboard/settings`, label: navDict.settings, icon: Settings },
+    ];
 
-    const settingsNav = { href: `/${lang}/dashboard/settings`, label: navDict.settings, icon: Settings };
 
   return (
     <header className="flex h-16 items-center gap-4 border-b bg-background px-4 lg:h-[60px] lg:px-6 sticky top-0 z-40">
@@ -57,48 +61,53 @@ export function DashboardHeader({ lang, dictionary }: { lang: Locale, dictionary
                             <span className="text-2xl font-headline">{headerDict.title}</span>
                         </Link>
                     </div>
-                    <nav className="flex-1 grid items-start p-4 text-sm font-medium">
-                        <span className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{navDict.hotelManagement}</span>
-                        {hotelNav.map((item) => (
-                            <Link
-                                key={item.label}
-                                href={item.href}
-                                className={cn(
-                                    "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
-                                    pathname === item.href && "bg-muted text-primary"
-                                )}
-                            >
-                                <item.icon className="h-4 w-4" />
-                                {item.label}
-                            </Link>
-                        ))}
-                        <Separator className="my-4" />
-                        <span className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{navDict.restaurantManagement}</span>
-                        {restaurantNav.map((item) => (
-                            <Link
-                                key={item.label}
-                                href={item.href}
-                                className={cn(
-                                    "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
-                                    pathname.startsWith(item.href) && "bg-muted text-primary"
-                                )}
-                            >
-                                <item.icon className="h-4 w-4" />
-                                {item.label}
-                            </Link>
-                        ))}
-                    </nav>
-                    <div className="mt-auto p-4 border-t">
-                        <Link
-                            href={settingsNav.href}
-                            className={cn(
-                                "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
-                                pathname === settingsNav.href && "bg-muted text-primary"
-                            )}
-                        >
-                            <settingsNav.icon className="h-4 w-4" />
-                            {settingsNav.label}
-                        </Link>
+                    <div className="flex-1 overflow-y-auto">
+                        <nav className="grid items-start p-4 text-sm font-medium">
+                            <span className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{navDict.hotelManagement}</span>
+                            {hotelNav.map((item) => (
+                                <Link
+                                    key={item.label}
+                                    href={item.href}
+                                    className={cn(
+                                        "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
+                                        pathname === item.href && "bg-muted text-primary"
+                                    )}
+                                >
+                                    <item.icon className="h-4 w-4" />
+                                    {item.label}
+                                </Link>
+                            ))}
+                            <Separator className="my-4" />
+                            <span className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{navDict.restaurantManagement}</span>
+                            {restaurantNav.map((item) => (
+                                <Link
+                                    key={item.label}
+                                    href={item.href}
+                                    className={cn(
+                                        "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
+                                        pathname.startsWith(item.href) && "bg-muted text-primary"
+                                    )}
+                                >
+                                    <item.icon className="h-4 w-4" />
+                                    {item.label}
+                                </Link>
+                            ))}
+                            <Separator className="my-4" />
+                             <span className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{navDict.generalManagement}</span>
+                            {managementNav.map((item) => (
+                                <Link
+                                    key={item.label}
+                                    href={item.href}
+                                    className={cn(
+                                        "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
+                                        pathname.startsWith(item.href) && "bg-muted text-primary"
+                                    )}
+                                >
+                                    <item.icon className="h-4 w-4" />
+                                    {item.label}
+                                </Link>
+                            ))}
+                        </nav>
                     </div>
                 </div>
             </SheetContent>
