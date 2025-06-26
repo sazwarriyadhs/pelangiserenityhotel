@@ -3,6 +3,7 @@ import { i18n } from '@/config/i18n-config'
 import type { Locale } from '@/config/i18n-config'
 import { CurrencyProvider } from '@/context/currency-provider'
 import { currencyMap } from '@/lib/currency'
+import { AuthProvider } from '@/context/auth-provider'
 
 
 export async function generateStaticParams() {
@@ -23,8 +24,10 @@ export default function LangLayout({
 }>) {
   const initialCurrency = currencyMap[params.lang]
   return (
-    <CurrencyProvider initialCurrency={initialCurrency}>
-        {children}
-    </CurrencyProvider>
+    <AuthProvider>
+      <CurrencyProvider initialCurrency={initialCurrency}>
+          {children}
+      </CurrencyProvider>
+    </AuthProvider>
   );
 }

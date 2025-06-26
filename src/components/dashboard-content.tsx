@@ -36,7 +36,7 @@ const recentBookings = [
 ]
 
 export function DashboardContent({ dictionary }: { dictionary: any }) {
-    const dashboardDict = dictionary.dashboard
+    const dashboardDict = dictionary;
 
     const chartConfig = {
       bookings: {

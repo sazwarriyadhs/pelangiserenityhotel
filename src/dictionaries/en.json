@@ -14,6 +14,12 @@
     "currencies": {
         "usd": "US Dollar (US$)",
         "idr": "Indonesian Rupiah (IDR)"
+    },
+    "auth": "Login As",
+    "roles": {
+        "guest": "Guest",
+        "staff": "Staff",
+        "admin": "Admin"
     }
   },
   "hero": {
@@ -82,6 +88,11 @@
         "date": "Date",
         "amount": "Amount"
     }
+  },
+  "accessDenied": {
+    "title": "Access Denied",
+    "message": "You do not have permission to view this page.",
+    "goHome": "Go to Homepage"
   },
   "footer": {
     "copyright": "© {year} Tranquil Stays. All Rights Reserved."
