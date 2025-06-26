@@ -209,6 +209,15 @@
             "dates": "Tanggal",
             "amount": "Jumlah"
         },
+        "loyaltyHistoryTitle": "Riwayat Transaksi Loyalitas",
+        "loyaltyHistoryHeaders": {
+            "date": "Tanggal",
+            "description": "Deskripsi",
+            "points": "Poin"
+        },
+        "pointsEarnedBooking": "Poin Diperoleh - Pemesanan {bookingId}",
+        "pointsRedeemedUpgrade": "Poin Ditukar - Peningkatan Kamar",
+        "pointsEarnedWelcome": "Bonus Selamat Datang",
         "close": "Tutup"
       }
     },

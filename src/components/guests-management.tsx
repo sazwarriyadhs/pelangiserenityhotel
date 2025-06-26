@@ -25,6 +25,12 @@ type BookingHistory = {
     status: string;
 };
 
+type LoyaltyTransaction = {
+    date: string;
+    description: string;
+    points: number;
+};
+
 type LoyaltyTier = 'Platinum' | 'Gold' | 'Silver' | 'None';
 
 type GuestWithHistory = {
@@ -40,6 +46,7 @@ type GuestWithHistory = {
     loyaltyTier: LoyaltyTier;
     loyaltyPoints: number;
     bookingHistory: BookingHistory[];
+    loyaltyHistory: LoyaltyTransaction[];
 };
 
 const mockGuests: GuestWithHistory[] = [
@@ -49,12 +56,23 @@ const mockGuests: GuestWithHistory[] = [
             { id: 'BK-1294', room: 'Luxury King Suite', checkIn: '2024-07-26', checkOut: '2024-07-28', amount: 900, status: 'Completed' },
             { id: 'BK-1120', room: 'Deluxe Queen Room', checkIn: '2023-12-20', checkOut: '2023-12-23', amount: 750, status: 'Completed' },
             { id: 'BK-1055', room: 'Deluxe Queen Room', checkIn: '2023-01-15', checkOut: '2023-01-16', amount: 250, status: 'Completed' },
+        ],
+        loyaltyHistory: [
+            { date: '2024-07-28', description: "Points Earned - Booking BK-1294", points: 9000 },
+            { date: '2023-12-23', description: "Points Earned - Booking BK-1120", points: 7500 },
+            { date: '2023-05-01', description: "Points Redeemed - Room Upgrade", points: -5000 },
+            { date: '2023-01-16', description: "Points Earned - Booking BK-1055", points: 2500 },
+            { date: '2023-01-15', description: "Welcome Bonus", points: 1000 },
         ]
     },
     { 
         id: 'GST-002', name: 'Bob Williams', email: 'bob@example.com', phone: '+1987654321', totalBookings: 1, lastVisit: '2024-07-28', avatar: 'https://placehold.co/100x100.png', joinDate: '2024-07-28', notes: 'First time guest.', loyaltyTier: 'Silver', loyaltyPoints: 1500,
         bookingHistory: [
             { id: 'BK-1293', room: 'Deluxe Queen Room', checkIn: '2024-07-28', checkOut: '2024-07-30', amount: 500, status: 'CheckedIn' },
+        ],
+        loyaltyHistory: [
+            { date: '2024-07-28', description: "Points Earned - Booking BK-1293", points: 500 },
+            { date: '2024-07-28', description: "Welcome Bonus", points: 1000 },
         ]
     },
     { 
@@ -62,18 +80,31 @@ const mockGuests: GuestWithHistory[] = [
         bookingHistory: [
             { id: 'BK-1292', room: 'Presidential Suite', checkIn: '2024-07-25', checkOut: '2024-07-27', amount: 2400, status: 'Completed' },
             { id: 'BK-1105', room: 'Presidential Suite', checkIn: '2023-11-01', checkOut: '2023-11-05', amount: 4800, status: 'Completed' },
+        ],
+        loyaltyHistory: [
+            { date: '2024-07-27', description: "Points Earned - Booking BK-1292", points: 24000 },
+            { date: '2023-11-05', description: "Points Earned - Booking BK-1105", points: 48000 },
+            { date: '2023-01-01', description: "Points Redeemed - Free Dinner", points: -15000 },
+            { date: '2022-03-10', description: "Welcome Bonus", points: 2000 },
         ]
     },
     { 
         id: 'GST-004', name: 'Diana Prince', email: 'diana@example.com', phone: '+1555666777', totalBookings: 2, lastVisit: '2024-07-26', avatar: 'https://placehold.co/100x100.png', joinDate: '2023-08-19', notes: '', loyaltyTier: 'Silver', loyaltyPoints: 4000,
         bookingHistory: [
             { id: 'BK-1291', room: 'Deluxe Queen Room', checkIn: '2024-07-24', checkOut: '2024-07-26', amount: 500, status: 'Completed' },
+        ],
+        loyaltyHistory: [
+            { date: '2024-07-26', description: "Points Earned - Booking BK-1291", points: 3000 },
+            { date: '2023-08-19', description: "Welcome Bonus", points: 1000 },
         ]
     },
     { 
         id: 'GST-005', name: 'Ethan Hunt', email: 'ethan@example.com', phone: '+1444333222', totalBookings: 1, lastVisit: '2024-07-25', avatar: 'https://placehold.co/100x100.png', joinDate: '2024-07-25', notes: 'Allergic to peanuts.', loyaltyTier: 'None', loyaltyPoints: 900,
         bookingHistory: [
             { id: 'BK-1290', room: 'Luxury King Suite', checkIn: '2024-07-23', checkOut: '2024-07-25', amount: 900, status: 'Completed' },
+        ],
+        loyaltyHistory: [
+            { date: '2024-07-25', description: "Points Earned - Booking BK-1290", points: 900 },
         ]
     },
 ];
@@ -215,7 +246,7 @@ export function GuestsManagement({ dictionary, lang }: { dictionary: any, lang: 
                             </div>
                             <div>
                                 <h3 className="text-lg font-semibold mb-2">{guestsDict.detailsDialog.bookingHistoryTitle}</h3>
-                                <div className="border rounded-md">
+                                <div className="border rounded-md max-h-48 overflow-y-auto">
                                     <Table>
                                         <TableHeader>
                                             <TableRow>
@@ -232,6 +263,37 @@ export function GuestsManagement({ dictionary, lang }: { dictionary: any, lang: 
                                                     <TableCell>{booking.room}</TableCell>
                                                     <TableCell>{format(new Date(booking.checkIn), 'PP')} - {format(new Date(booking.checkOut), 'PP')}</TableCell>
                                                     <TableCell className="text-right">${booking.amount.toLocaleString()}</TableCell>
+                                                </TableRow>
+                                            ))}
+                                        </TableBody>
+                                    </Table>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">{guestsDict.detailsDialog.loyaltyHistoryTitle}</h3>
+                                <div className="border rounded-md max-h-48 overflow-y-auto">
+                                    <Table>
+                                        <TableHeader>
+                                            <TableRow>
+                                                <TableHead>{guestsDict.detailsDialog.loyaltyHistoryHeaders.date}</TableHead>
+                                                <TableHead>{guestsDict.detailsDialog.loyaltyHistoryHeaders.description}</TableHead>
+                                                <TableHead className="text-right">{guestsDict.detailsDialog.loyaltyHistoryHeaders.points}</TableHead>
+                                            </TableRow>
+                                        </TableHeader>
+                                        <TableBody>
+                                            {selectedGuest.loyaltyHistory.map((transaction, index) => (
+                                                <TableRow key={index}>
+                                                    <TableCell>{format(new Date(transaction.date), 'PP')}</TableCell>
+                                                    <TableCell>
+                                                        {transaction.description
+                                                            .replace('Points Earned - Booking {bookingId}', guestsDict.detailsDialog.pointsEarnedBooking)
+                                                            .replace('Points Redeemed - Room Upgrade', guestsDict.detailsDialog.pointsRedeemedUpgrade)
+                                                            .replace('Welcome Bonus', guestsDict.detailsDialog.pointsEarnedWelcome)
+                                                        }
+                                                    </TableCell>
+                                                    <TableCell className={`text-right font-medium ${transaction.points > 0 ? 'text-primary' : 'text-destructive'}`}>
+                                                        {transaction.points > 0 ? '+' : ''}{transaction.points.toLocaleString()}
+                                                    </TableCell>
                                                 </TableRow>
                                             ))}
                                         </TableBody>

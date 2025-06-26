@@ -209,6 +209,15 @@
               "dates": "Dates",
               "amount": "Amount"
           },
+          "loyaltyHistoryTitle": "Loyalty Transaction History",
+          "loyaltyHistoryHeaders": {
+            "date": "Date",
+            "description": "Description",
+            "points": "Points"
+          },
+          "pointsEarnedBooking": "Points Earned - Booking {bookingId}",
+          "pointsRedeemedUpgrade": "Points Redeemed - Room Upgrade",
+          "pointsEarnedWelcome": "Welcome Bonus",
           "close": "Close"
       }
     },
