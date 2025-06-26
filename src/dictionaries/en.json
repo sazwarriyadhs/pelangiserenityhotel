@@ -73,6 +73,7 @@
         "viewSite": "View Site"
     },
     "sidebar": {
+        "hotelManagement": "Hotel",
         "overview": "Overview",
         "bookings": "Bookings",
         "rooms": "Rooms",
@@ -81,7 +82,9 @@
         "payments": "Payments",
         "analytics": "Analytics",
         "staff": "Staff",
-        "settings": "Settings"
+        "settings": "Settings",
+        "restaurantManagement": "Restaurant",
+        "restaurantMenu": "Menu Management"
     },
     "title": "Dashboard",
     "stats": {
@@ -332,6 +335,45 @@
             "success": {
                 "title": "Staff Member Saved",
                 "description": "Successfully saved the staff member '{name}'."
+            }
+        }
+    },
+    "restaurant": {
+        "menuManagementPage": {
+            "title": "Menu Management",
+            "description": "Manage all food and beverage items available in the restaurant.",
+            "addNew": "Add New Item",
+            "edit": "Edit",
+            "delete": "Delete",
+            "categories": {
+                "Breakfast": "Breakfast",
+                "Lunch": "Lunch",
+                "Dinner": "Dinner",
+                "Drinks": "Drinks"
+            },
+            "addMenuDialog": {
+                "title": "Add New Menu Item",
+                "editTitle": "Edit Menu Item",
+                "description": "Fill in the details for the new menu item.",
+                "name": "Item Name",
+                "descriptionField": "Description",
+                "price": "Price",
+                "category": "Category",
+                "selectCategory": "Select a category",
+                "imageUrl": "Image URL",
+                "submit": "Save Item",
+                "cancel": "Cancel",
+                "errors": {
+                    "nameRequired": "Item name is required.",
+                    "descriptionRequired": "Description is required.",
+                    "priceRequired": "Price is required.",
+                    "categoryRequired": "Category is required.",
+                    "imageUrlInvalid": "Please enter a valid image URL."
+                },
+                "success": {
+                    "title": "Menu Item Saved",
+                    "description": "Successfully saved the menu item '{name}'."
+                }
             }
         }
     }

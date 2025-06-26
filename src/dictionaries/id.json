@@ -73,6 +73,7 @@
         "viewSite": "Lihat Situs"
     },
     "sidebar": {
+        "hotelManagement": "Hotel",
         "overview": "Gambaran Umum",
         "bookings": "Pemesanan",
         "rooms": "Kamar",
@@ -81,7 +82,9 @@
         "payments": "Pembayaran",
         "analytics": "Analitik",
         "staff": "Staf",
-        "settings": "Pengaturan"
+        "settings": "Pengaturan",
+        "restaurantManagement": "Restoran",
+        "restaurantMenu": "Manajemen Menu"
     },
     "title": "Dasbor",
     "stats": {
@@ -332,6 +335,45 @@
             "success": {
                 "title": "Anggota Staf Disimpan",
                 "description": "Berhasil menyimpan anggota staf '{name}'."
+            }
+        }
+    },
+    "restaurant": {
+        "menuManagementPage": {
+            "title": "Manajemen Menu",
+            "description": "Kelola semua item makanan dan minuman yang tersedia di restoran.",
+            "addNew": "Tambah Item Baru",
+            "edit": "Ubah",
+            "delete": "Hapus",
+            "categories": {
+                "Breakfast": "Sarapan",
+                "Lunch": "Makan Siang",
+                "Dinner": "Makan Malam",
+                "Drinks": "Minuman"
+            },
+            "addMenuDialog": {
+                "title": "Tambah Item Menu Baru",
+                "editTitle": "Ubah Item Menu",
+                "description": "Isi detail untuk item menu baru.",
+                "name": "Nama Item",
+                "descriptionField": "Deskripsi",
+                "price": "Harga",
+                "category": "Kategori",
+                "selectCategory": "Pilih kategori",
+                "imageUrl": "URL Gambar",
+                "submit": "Simpan Item",
+                "cancel": "Batal",
+                "errors": {
+                    "nameRequired": "Nama item wajib diisi.",
+                    "descriptionRequired": "Deskripsi wajib diisi.",
+                    "priceRequired": "Harga wajib diisi.",
+                    "categoryRequired": "Kategori wajib diisi.",
+                    "imageUrlInvalid": "Silakan masukkan URL gambar yang valid."
+                },
+                "success": {
+                    "title": "Item Menu Disimpan",
+                    "description": "Berhasil menyimpan item menu '{name}'."
+                }
             }
         }
     }

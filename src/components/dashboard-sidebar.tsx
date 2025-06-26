@@ -2,15 +2,16 @@
 'use client'
 
 import Link from 'next/link';
-import { LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, Hotel, BedDouble, CreditCard, Sparkles, UserCog } from 'lucide-react';
+import { LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, Hotel, BedDouble, CreditCard, Sparkles, UserCog, UtensilsCrossed } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import type { Locale } from '@/config/i18n-config';
+import { Separator } from './ui/separator';
 
 export function DashboardSidebar({ dictionary, lang }: { dictionary: any, lang: Locale }) {
     const pathname = usePathname();
 
-    const mainNav = [
+    const hotelNav = [
         { href: `/${lang}/dashboard`, label: dictionary.overview, icon: LayoutDashboard },
         { href: `/${lang}/dashboard/bookings`, label: dictionary.bookings, icon: BookOpenCheck },
         { href: `/${lang}/dashboard/rooms`, label: dictionary.rooms, icon: BedDouble },
@@ -19,6 +20,10 @@ export function DashboardSidebar({ dictionary, lang }: { dictionary: any, lang: 
         { href: `/${lang}/dashboard/payments`, label: dictionary.payments, icon: CreditCard },
         { href: `/${lang}/dashboard/analytics`, label: dictionary.analytics, icon: BarChart3 },
         { href: `/${lang}/dashboard/staff`, label: dictionary.staff, icon: UserCog },
+    ];
+    
+    const restaurantNav = [
+        { href: `/${lang}/dashboard/restaurant/menu`, label: dictionary.restaurantMenu, icon: UtensilsCrossed },
     ];
 
     const settingsNav = {
@@ -36,15 +41,31 @@ export function DashboardSidebar({ dictionary, lang }: { dictionary: any, lang: 
                         <span className="font-headline text-xl">Tranquil Stays</span>
                     </Link>
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 overflow-y-auto">
                     <nav className="grid items-start p-2 text-sm font-medium lg:p-4">
-                        {mainNav.map((item) => (
+                        <span className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{dictionary.hotelManagement}</span>
+                        {hotelNav.map((item) => (
                             <Link
                                 key={item.label}
                                 href={item.href}
                                 className={cn(
                                     "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
                                     pathname === item.href && "bg-muted text-primary"
+                                )}
+                            >
+                                <item.icon className="h-4 w-4" />
+                                {item.label}
+                            </Link>
+                        ))}
+                        <Separator className="my-4" />
+                        <span className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{dictionary.restaurantManagement}</span>
+                         {restaurantNav.map((item) => (
+                            <Link
+                                key={item.label}
+                                href={item.href}
+                                className={cn(
+                                    "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
+                                    pathname.startsWith(item.href) && "bg-muted text-primary"
                                 )}
                             >
                                 <item.icon className="h-4 w-4" />

@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Hotel, Menu, LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, BedDouble, CreditCard, Sparkles, UserCog } from "lucide-react";
+import { Hotel, Menu, LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, BedDouble, CreditCard, Sparkles, UserCog, UtensilsCrossed } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LocaleSwitcher } from './locale-switcher'
@@ -10,6 +10,7 @@ import { AuthSwitcher } from "./auth-switcher";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { cn } from "@/lib/utils";
+import { Separator } from "./ui/separator";
 
 
 export function DashboardHeader({ lang, dictionary }: { lang: Locale, dictionary: any }) {
@@ -17,7 +18,7 @@ export function DashboardHeader({ lang, dictionary }: { lang: Locale, dictionary
     const navDict = dictionary.dashboard.sidebar;
     const headerDict = dictionary.dashboard.header;
     
-    const mainNav = [
+    const hotelNav = [
         { href: `/${lang}/dashboard`, label: navDict.overview, icon: LayoutDashboard },
         { href: `/${lang}/dashboard/bookings`, label: navDict.bookings, icon: BookOpenCheck },
         { href: `/${lang}/dashboard/rooms`, label: navDict.rooms, icon: BedDouble },
@@ -27,6 +28,11 @@ export function DashboardHeader({ lang, dictionary }: { lang: Locale, dictionary
         { href: `/${lang}/dashboard/analytics`, label: navDict.analytics, icon: BarChart3 },
         { href: `/${lang}/dashboard/staff`, label: navDict.staff, icon: UserCog },
     ];
+    
+    const restaurantNav = [
+        { href: `/${lang}/dashboard/restaurant/menu`, label: navDict.restaurantMenu, icon: UtensilsCrossed },
+    ];
+
     const settingsNav = { href: `/${lang}/dashboard/settings`, label: navDict.settings, icon: Settings };
 
   return (
@@ -47,13 +53,29 @@ export function DashboardHeader({ lang, dictionary }: { lang: Locale, dictionary
                         </Link>
                     </div>
                     <nav className="flex-1 grid items-start p-4 text-sm font-medium">
-                        {mainNav.map((item) => (
+                        <span className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{navDict.hotelManagement}</span>
+                        {hotelNav.map((item) => (
                             <Link
                                 key={item.label}
                                 href={item.href}
                                 className={cn(
                                     "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
                                     pathname === item.href && "bg-muted text-primary"
+                                )}
+                            >
+                                <item.icon className="h-4 w-4" />
+                                {item.label}
+                            </Link>
+                        ))}
+                        <Separator className="my-4" />
+                        <span className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{navDict.restaurantManagement}</span>
+                        {restaurantNav.map((item) => (
+                            <Link
+                                key={item.label}
+                                href={item.href}
+                                className={cn(
+                                    "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary",
+                                    pathname.startsWith(item.href) && "bg-muted text-primary"
                                 )}
                             >
                                 <item.icon className="h-4 w-4" />
