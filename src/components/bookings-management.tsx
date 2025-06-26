@@ -1,7 +1,7 @@
 
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useAuth } from '@/context/auth-provider'
 import { AccessDenied } from '@/components/access-denied'
 import type { Locale } from '@/config/i18n-config'
@@ -12,7 +12,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogFooter, DialogTrigger, DialogClose } from '@/components/ui/dialog'
 import { Button } from "@/components/ui/button"
 import { Badge } from '@/components/ui/badge'
-import { format, isToday, parseISO, addDays, subDays } from 'date-fns'
+import { format, isToday, parseISO } from 'date-fns'
 import { useCurrency } from '@/context/currency-provider'
 import { formatCurrency, priceRates } from '@/lib/currency'
 import { BedDouble, File, LogIn, LogOut, MoreHorizontal, PlusCircle, UserCheck } from 'lucide-react'
@@ -28,20 +28,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Calendar } from '@/components/ui/calendar'
 import { Calendar as CalendarIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
-
-type BookingStatus = 'Confirmed' | 'Pending' | 'Cancelled' | 'CheckedIn';
-
-const today = new Date();
-const mockBookings: { id: string; guest: string; room: string; checkIn: string; checkOut: string; amount: number; status: BookingStatus }[] = [
-    { id: 'BK-1294', guest: 'Alice Johnson', room: 'Luxury King Suite', checkIn: format(today, 'yyyy-MM-dd'), checkOut: format(addDays(today, 3), 'yyyy-MM-dd'), amount: 1350, status: 'Confirmed' },
-    { id: 'BK-1293', guest: 'Bob Williams', room: 'Deluxe Queen Room', checkIn: format(today, 'yyyy-MM-dd'), checkOut: format(addDays(today, 2), 'yyyy-MM-dd'), amount: 500, status: 'Confirmed' },
-    { id: 'BK-1292', guest: 'Charlie Brown', room: 'Presidential Suite', checkIn: format(addDays(today, 1), 'yyyy-MM-dd'), checkOut: format(addDays(today, 3), 'yyyy-MM-dd'), amount: 2400, status: 'Pending' },
-    { id: 'BK-1291', guest: 'Diana Prince', room: 'Deluxe Queen Room', checkIn: format(subDays(today, 2), 'yyyy-MM-dd'), checkOut: format(today, 'yyyy-MM-dd'), amount: 500, status: 'CheckedIn' },
-    { id: 'BK-1290', guest: 'Ethan Hunt', room: 'Luxury King Suite', checkIn: format(subDays(today, 5), 'yyyy-MM-dd'), checkOut: format(subDays(today, 2), 'yyyy-MM-dd'), amount: 1350, status: 'Cancelled' },
-    { id: 'BK-1289', guest: 'Fiona Glenanne', room: 'Deluxe Queen Room', checkIn: format(addDays(today, 2), 'yyyy-MM-dd'), checkOut: format(addDays(today, 5), 'yyyy-MM-dd'), amount: 750, status: 'Confirmed' },
-    { id: 'BK-1288', guest: 'George Costanza', room: 'Presidential Suite', checkIn: format(addDays(today, 10), 'yyyy-MM-dd'), checkOut: format(addDays(today, 15), 'yyyy-MM-dd'), amount: 6000, status: 'Pending' },
-    { id: 'BK-1287', guest: 'Hannah Montana', room: 'Deluxe Queen Room', checkIn: format(subDays(today, 1), 'yyyy-MM-dd'), checkOut: format(addDays(today, 1), 'yyyy-MM-dd'), amount: 500, status: 'CheckedIn' },
-];
+import { initialBookings, type Booking, type BookingStatus } from '@/lib/bookings-constants'
 
 const getAddBookingFormSchema = (dictionary: any) => z.object({
   guestName: z.string().min(1, { message: dictionary.errors.guestNameRequired }),
@@ -54,11 +41,28 @@ const getAddBookingFormSchema = (dictionary: any) => z.object({
 });
 
 export function BookingsManagement({ dictionary, lang }: { dictionary: any, lang: Locale }) {
-    const { user } = useAuth()
+    const { user } = useAuth();
     const { currency } = useCurrency();
     const { toast } = useToast();
+    const [bookings, setBookings] = useState<Booking[]>([]);
     const [activeTab, setActiveTab] = useState("all");
     const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+    useEffect(() => {
+        try {
+            const storedBookings = localStorage.getItem('tranquil-bookings');
+            if (storedBookings) {
+                setBookings(JSON.parse(storedBookings));
+            } else {
+                // If no bookings in storage, initialize with mock data
+                localStorage.setItem('tranquil-bookings', JSON.stringify(initialBookings));
+                setBookings(initialBookings);
+            }
+        } catch (error) {
+            console.error("Could not load bookings from localStorage", error);
+            setBookings(initialBookings);
+        }
+    }, []);
     
     const bookingsDict = dictionary.dashboard.bookingsPage;
     const addBookingDialogDict = bookingsDict.addReservationDialog;
@@ -69,18 +73,29 @@ export function BookingsManagement({ dictionary, lang }: { dictionary: any, lang
       defaultValues: { guestName: "" }
     });
 
-    const filteredBookings = useMemo(() => {
-        if (activeTab === 'all') return mockBookings;
-        return mockBookings.filter(b => b.status.toLowerCase() === activeTab);
-    }, [activeTab]);
-    
     const isAuthorized = user && (user.role === 'admin' || user.role === 'staff')
+
+    const filteredBookings = useMemo(() => {
+        if (activeTab === 'all') return bookings;
+        return bookings.filter(b => b.status.toLowerCase() === activeTab);
+    }, [activeTab, bookings]);
+    
+    const todaysArrivals = useMemo(() => {
+        return bookings.filter(b => isToday(parseISO(b.checkIn)) && b.status === 'Confirmed');
+    }, [bookings]);
+
+    const todaysDepartures = useMemo(() => {
+        return bookings.filter(b => isToday(parseISO(b.checkOut)) && b.status === 'CheckedIn');
+    }, [bookings]);
+
 
     if (!isAuthorized) {
         return <AccessDenied dictionary={dictionary.accessDenied} lang={lang} />
     }
     
     function onAddBooking(data: z.infer<typeof addBookingFormSchema>) {
+      // This function is for adding a booking directly from the dashboard
+      // The logic is similar to the public booking form
       toast({
         title: addBookingDialogDict.success.title,
         description: addBookingDialogDict.success.description
@@ -91,9 +106,6 @@ export function BookingsManagement({ dictionary, lang }: { dictionary: any, lang
       setIsDialogOpen(false);
       form.reset();
     }
-
-    const todaysArrivals = mockBookings.filter(b => isToday(parseISO(b.checkIn)) && b.status === 'Confirmed');
-    const todaysDepartures = mockBookings.filter(b => isToday(parseISO(b.checkOut)) && b.status === 'CheckedIn');
 
     const getStatusVariant = (status: BookingStatus): "default" | "secondary" | "destructive" | "outline" => {
         switch (status) {
@@ -260,7 +272,3 @@ export function BookingsManagement({ dictionary, lang }: { dictionary: any, lang
         </div>
     )
 }
-
-    
-
-    

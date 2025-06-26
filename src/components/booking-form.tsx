@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { format } from "date-fns";
+import { format, differenceInDays } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -17,6 +17,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import {
   Popover,
   PopoverContent,
@@ -31,8 +32,12 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { rooms } from "@/lib/constants";
+import type { Booking } from "@/lib/bookings-constants";
 
 const getBookingFormSchema = (dictionary: any) => z.object({
+  guestName: z.string().min(2, {
+    message: dictionary.errors.guestNameRequired,
+  }),
   roomType: z.string({
     required_error: dictionary.errors.roomRequired,
   }),
@@ -57,22 +62,72 @@ export function BookingForm({ dictionary }: { dictionary: any }) {
 
   const form = useForm<z.infer<typeof bookingFormSchema>>({
     resolver: zodResolver(bookingFormSchema),
+    defaultValues: {
+      guestName: "",
+    }
   });
 
   function onSubmit(data: z.infer<typeof bookingFormSchema>) {
-    toast({
-      title: dictionary.successTitle,
-      description: dictionary.successDescription
-        .replace('{roomType}', data.roomType)
-        .replace('{from}', format(data.dates.from, "PPP"))
-        .replace('{to}', format(data.dates.to, "PPP")),
-    });
-    form.reset();
+    // Simulate backend integration by storing in localStorage
+    const roomDetails = rooms.find(r => r.name === data.roomType);
+    if (!roomDetails) {
+        // Should not happen if form is validated
+        return;
+    }
+
+    const numberOfNights = differenceInDays(data.dates.to, data.dates.from);
+    
+    const newBooking: Booking = {
+      id: `BK-${Math.floor(Math.random() * 10000)}`,
+      guest: data.guestName,
+      room: data.roomType,
+      checkIn: format(data.dates.from, "yyyy-MM-dd"),
+      checkOut: format(data.dates.to, "yyyy-MM-dd"),
+      amount: roomDetails.price * numberOfNights,
+      status: 'Confirmed',
+    };
+
+    try {
+      const existingBookings: Booking[] = JSON.parse(localStorage.getItem('tranquil-bookings') || '[]');
+      const updatedBookings = [...existingBookings, newBooking];
+      localStorage.setItem('tranquil-bookings', JSON.stringify(updatedBookings));
+
+      toast({
+        title: dictionary.successTitle,
+        description: dictionary.successDescription
+          .replace('{guestName}', data.guestName)
+          .replace('{roomType}', data.roomType)
+          .replace('{from}', format(data.dates.from, "PPP"))
+          .replace('{to}', format(data.dates.to, "PPP")),
+      });
+      form.reset();
+
+    } catch (error) {
+      console.error("Failed to save booking to localStorage", error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Could not save booking. Please try again.",
+      })
+    }
   }
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+         <FormField
+          control={form.control}
+          name="guestName"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{dictionary.guestName}</FormLabel>
+              <FormControl>
+                <Input placeholder={dictionary.guestNamePlaceholder} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="roomType"

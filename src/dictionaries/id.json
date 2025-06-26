@@ -36,9 +36,12 @@
   "booking": {
     "title": "Pesan Penginapan Anda",
     "subtitle": "Pilih tanggal dan kamar Anda untuk memulai perjalanan menuju ketenangan.",
+    "guestName": "Nama Tamu",
+    "guestNamePlaceholder": "cth., Budi Santoso",
     "roomType": "Tipe Kamar",
     "selectRoom": "Pilih kamar",
     "errors": {
+        "guestNameRequired": "Nama tamu wajib diisi.",
         "roomRequired": "Silakan pilih tipe kamar.",
         "checkinRequired": "Tanggal check-in wajib diisi.",
         "checkoutRequired": "Tanggal check-out wajib diisi.",
@@ -48,7 +51,7 @@
     "pickDates": "Pilih tanggal Anda",
     "button": "Konfirmasi Pemesanan",
     "successTitle": "Pemesanan Dikonfirmasi!",
-    "successDescription": "{roomType} Anda telah dipesan dari {from} hingga {to}. Konfirmasi email telah dikirim."
+    "successDescription": "Kepada {guestName}, {roomType} Anda telah dipesan dari {from} hingga {to}. Konfirmasi email telah dikirim."
   },
   "concierge": {
     "title": "Layanan Bantuan AI",

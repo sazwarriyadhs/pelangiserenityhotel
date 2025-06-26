@@ -36,9 +36,12 @@
   "booking": {
     "title": "Book Your Stay",
     "subtitle": "Select your dates and room to begin your journey to tranquility.",
+    "guestName": "Guest Name",
+    "guestNamePlaceholder": "e.g., John Doe",
     "roomType": "Room Type",
     "selectRoom": "Select a room",
     "errors": {
+        "guestNameRequired": "Guest name is required.",
         "roomRequired": "Please select a room type.",
         "checkinRequired": "A check-in date is required.",
         "checkoutRequired": "A check-out date is required.",
@@ -48,7 +51,7 @@
     "pickDates": "Pick your dates",
     "button": "Confirm Booking",
     "successTitle": "Booking Confirmed!",
-    "successDescription": "Your {roomType} is booked from {from} to {to}. An email confirmation has been sent."
+    "successDescription": "Dear {guestName}, your {roomType} is booked from {from} to {to}. An email confirmation has been sent."
   },
   "concierge": {
     "title": "AI Concierge",
