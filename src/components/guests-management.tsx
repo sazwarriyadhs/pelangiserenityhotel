@@ -11,9 +11,10 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Badge } from '@/components/ui/badge'
 import { format } from 'date-fns'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { MoreHorizontal } from 'lucide-react'
+import { MoreHorizontal, Star } from 'lucide-react'
 
 type BookingHistory = {
     id: string;
@@ -23,6 +24,8 @@ type BookingHistory = {
     amount: number;
     status: string;
 };
+
+type LoyaltyTier = 'Platinum' | 'Gold' | 'Silver' | 'None';
 
 type GuestWithHistory = {
     id: string;
@@ -34,12 +37,14 @@ type GuestWithHistory = {
     avatar: string;
     joinDate: string;
     notes: string;
+    loyaltyTier: LoyaltyTier;
+    loyaltyPoints: number;
     bookingHistory: BookingHistory[];
 };
 
 const mockGuests: GuestWithHistory[] = [
     { 
-        id: 'GST-001', name: 'Alice Johnson', email: 'alice@example.com', phone: '+1234567890', totalBookings: 3, lastVisit: '2024-07-28', avatar: 'https://placehold.co/100x100.png', joinDate: '2023-01-15', notes: 'Prefers a quiet room away from the elevator.',
+        id: 'GST-001', name: 'Alice Johnson', email: 'alice@example.com', phone: '+1234567890', totalBookings: 3, lastVisit: '2024-07-28', avatar: 'https://placehold.co/100x100.png', joinDate: '2023-01-15', notes: 'Prefers a quiet room away from the elevator.', loyaltyTier: 'Gold', loyaltyPoints: 12500,
         bookingHistory: [
             { id: 'BK-1294', room: 'Luxury King Suite', checkIn: '2024-07-26', checkOut: '2024-07-28', amount: 900, status: 'Completed' },
             { id: 'BK-1120', room: 'Deluxe Queen Room', checkIn: '2023-12-20', checkOut: '2023-12-23', amount: 750, status: 'Completed' },
@@ -47,26 +52,26 @@ const mockGuests: GuestWithHistory[] = [
         ]
     },
     { 
-        id: 'GST-002', name: 'Bob Williams', email: 'bob@example.com', phone: '+1987654321', totalBookings: 1, lastVisit: '2024-07-28', avatar: 'https://placehold.co/100x100.png', joinDate: '2024-07-28', notes: 'First time guest.',
+        id: 'GST-002', name: 'Bob Williams', email: 'bob@example.com', phone: '+1987654321', totalBookings: 1, lastVisit: '2024-07-28', avatar: 'https://placehold.co/100x100.png', joinDate: '2024-07-28', notes: 'First time guest.', loyaltyTier: 'Silver', loyaltyPoints: 1500,
         bookingHistory: [
             { id: 'BK-1293', room: 'Deluxe Queen Room', checkIn: '2024-07-28', checkOut: '2024-07-30', amount: 500, status: 'CheckedIn' },
         ]
     },
     { 
-        id: 'GST-003', name: 'Charlie Brown', email: 'charlie@example.com', phone: '+1122334455', totalBookings: 5, lastVisit: '2024-07-27', avatar: 'https://placehold.co/100x100.png', joinDate: '2022-03-10', notes: 'VIP Guest. Likes a complimentary fruit basket upon arrival.',
+        id: 'GST-003', name: 'Charlie Brown', email: 'charlie@example.com', phone: '+1122334455', totalBookings: 5, lastVisit: '2024-07-27', avatar: 'https://placehold.co/100x100.png', joinDate: '2022-03-10', notes: 'VIP Guest. Likes a complimentary fruit basket upon arrival.', loyaltyTier: 'Platinum', loyaltyPoints: 55000,
         bookingHistory: [
             { id: 'BK-1292', room: 'Presidential Suite', checkIn: '2024-07-25', checkOut: '2024-07-27', amount: 2400, status: 'Completed' },
             { id: 'BK-1105', room: 'Presidential Suite', checkIn: '2023-11-01', checkOut: '2023-11-05', amount: 4800, status: 'Completed' },
         ]
     },
     { 
-        id: 'GST-004', name: 'Diana Prince', email: 'diana@example.com', phone: '+1555666777', totalBookings: 2, lastVisit: '2024-07-26', avatar: 'https://placehold.co/100x100.png', joinDate: '2023-08-19', notes: '',
+        id: 'GST-004', name: 'Diana Prince', email: 'diana@example.com', phone: '+1555666777', totalBookings: 2, lastVisit: '2024-07-26', avatar: 'https://placehold.co/100x100.png', joinDate: '2023-08-19', notes: '', loyaltyTier: 'Silver', loyaltyPoints: 4000,
         bookingHistory: [
             { id: 'BK-1291', room: 'Deluxe Queen Room', checkIn: '2024-07-24', checkOut: '2024-07-26', amount: 500, status: 'Completed' },
         ]
     },
     { 
-        id: 'GST-005', name: 'Ethan Hunt', email: 'ethan@example.com', phone: '+1444333222', totalBookings: 1, lastVisit: '2024-07-25', avatar: 'https://placehold.co/100x100.png', joinDate: '2024-07-25', notes: 'Allergic to peanuts.',
+        id: 'GST-005', name: 'Ethan Hunt', email: 'ethan@example.com', phone: '+1444333222', totalBookings: 1, lastVisit: '2024-07-25', avatar: 'https://placehold.co/100x100.png', joinDate: '2024-07-25', notes: 'Allergic to peanuts.', loyaltyTier: 'None', loyaltyPoints: 900,
         bookingHistory: [
             { id: 'BK-1290', room: 'Luxury King Suite', checkIn: '2024-07-23', checkOut: '2024-07-25', amount: 900, status: 'Completed' },
         ]
@@ -90,6 +95,15 @@ export function GuestsManagement({ dictionary, lang }: { dictionary: any, lang: 
     if (!isAuthorized) {
         return <AccessDenied dictionary={dictionary.accessDenied} lang={lang} />
     }
+
+    const getTierVariant = (tier: LoyaltyTier): "default" | "secondary" | "destructive" | "outline" => {
+        switch (tier) {
+            case 'Platinum': return 'default';
+            case 'Gold': return 'outline';
+            case 'Silver': return 'secondary';
+            default: return 'secondary';
+        }
+    };
 
     return (
         <div className="space-y-6">
@@ -116,6 +130,7 @@ export function GuestsManagement({ dictionary, lang }: { dictionary: any, lang: 
                                 <TableHead>{guestsDict.headers.name}</TableHead>
                                 <TableHead>{guestsDict.headers.contact}</TableHead>
                                 <TableHead className="text-center">{guestsDict.headers.totalBookings}</TableHead>
+                                <TableHead>{guestsDict.headers.loyaltyTier}</TableHead>
                                 <TableHead>{guestsDict.headers.lastVisit}</TableHead>
                                 <TableHead><span className="sr-only">{guestsDict.actions}</span></TableHead>
                             </TableRow>
@@ -137,6 +152,11 @@ export function GuestsManagement({ dictionary, lang }: { dictionary: any, lang: 
                                         <div className="text-sm text-muted-foreground">{guest.phone}</div>
                                     </TableCell>
                                     <TableCell className="text-center">{guest.totalBookings}</TableCell>
+                                    <TableCell>
+                                        <Badge variant={getTierVariant(guest.loyaltyTier)}>
+                                            {guestsDict.loyaltyTiers[guest.loyaltyTier]}
+                                        </Badge>
+                                    </TableCell>
                                     <TableCell>{format(new Date(guest.lastVisit), 'LLL dd, y')}</TableCell>
                                     <TableCell>
                                         <DropdownMenu>
@@ -184,6 +204,13 @@ export function GuestsManagement({ dictionary, lang }: { dictionary: any, lang: 
                                     <p className="text-sm"><strong>{guestsDict.detailsDialog.phone}:</strong> {selectedGuest.phone}</p>
                                     <h3 className="text-lg font-semibold mt-4">{guestsDict.detailsDialog.notes}</h3>
                                     <p className="text-sm text-muted-foreground">{selectedGuest.notes || 'No notes for this guest.'}</p>
+                                </div>
+                            </div>
+                             <div className="space-y-2">
+                                <h3 className="text-lg font-semibold flex items-center gap-2"><Star className="h-5 w-5 text-primary"/>{guestsDict.detailsDialog.loyaltyStatus}</h3>
+                                <div className="flex items-baseline gap-4">
+                                    <p className="text-sm"><strong>{guestsDict.detailsDialog.loyaltyTier}:</strong> <Badge variant={getTierVariant(selectedGuest.loyaltyTier)}>{guestsDict.loyaltyTiers[selectedGuest.loyaltyTier]}</Badge></p>
+                                    <p className="text-sm"><strong>{guestsDict.detailsDialog.loyaltyPoints}:</strong> {selectedGuest.loyaltyPoints.toLocaleString()}</p>
                                 </div>
                             </div>
                             <div>

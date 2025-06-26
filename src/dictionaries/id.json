@@ -183,7 +183,14 @@
         "name": "Nama",
         "contact": "Kontak",
         "totalBookings": "Total Pemesanan",
-        "lastVisit": "Kunjungan Terakhir"
+        "lastVisit": "Kunjungan Terakhir",
+        "loyaltyTier": "Tingkat Loyalitas"
+      },
+       "loyaltyTiers": {
+          "None": "Tidak Ada",
+          "Silver": "Perak",
+          "Gold": "Emas",
+          "Platinum": "Platinum"
       },
       "detailsDialog": {
         "title": "Detail Tamu",
@@ -192,6 +199,9 @@
         "email": "Email",
         "phone": "Telepon",
         "notes": "Catatan",
+        "loyaltyStatus": "Status Loyalitas",
+        "loyaltyTier": "Tingkat",
+        "loyaltyPoints": "Poin",
         "bookingHistoryTitle": "Riwayat Pemesanan",
         "historyHeaders": {
             "bookingId": "ID Pesanan",
@@ -535,7 +545,7 @@
             "markAsReady": "Tandai Siap",
             "toast": {
                 "statusUpdated": "Status Pesanan Diperbarui",
-                "orderStatusNow": "Status pesanan {orderId} diperbarui menjadi {status}."
+                "orderStatusNow": "Pesanan {orderId} diperbarui menjadi {status}."
             }
         }
     }

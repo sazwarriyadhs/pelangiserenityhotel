@@ -153,7 +153,7 @@
             "guestName": "Guest Name",
             "guestNamePlaceholder": "e.g., John Doe",
             "roomType": "Room Type",
-            "selectRoom": "Select a room type",
+            "selectRoom": "Select a room",
             "submit": "Create Reservation",
             "cancel": "Cancel",
             "errors": {
@@ -183,7 +183,14 @@
         "name": "Name",
         "contact": "Contact",
         "totalBookings": "Total Bookings",
-        "lastVisit": "Last Visit"
+        "lastVisit": "Last Visit",
+        "loyaltyTier": "Loyalty Tier"
+      },
+      "loyaltyTiers": {
+          "None": "None",
+          "Silver": "Silver",
+          "Gold": "Gold",
+          "Platinum": "Platinum"
       },
       "detailsDialog": {
           "title": "Guest Details",
@@ -192,6 +199,9 @@
           "email": "Email",
           "phone": "Phone",
           "notes": "Notes",
+          "loyaltyStatus": "Loyalty Status",
+          "loyaltyTier": "Tier",
+          "loyaltyPoints": "Points",
           "bookingHistoryTitle": "Booking History",
           "historyHeaders": {
               "bookingId": "Booking ID",
