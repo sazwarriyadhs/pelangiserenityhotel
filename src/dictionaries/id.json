@@ -75,6 +75,7 @@
     "sidebar": {
         "overview": "Gambaran Umum",
         "bookings": "Pemesanan",
+        "rooms": "Kamar",
         "guests": "Tamu",
         "analytics": "Analitik",
         "settings": "Pengaturan"
@@ -170,6 +171,39 @@
         "lastVisit": "Kunjungan Terakhir"
       }
     },
+     "roomsPage": {
+        "title": "Kelola Kamar",
+        "description": "Tambah, edit, dan kelola tipe kamar dan ketersediaan.",
+        "addNew": "Tambah Kamar Baru",
+        "edit": "Ubah",
+        "delete": "Hapus",
+        "statuses": {
+            "Available": "Tersedia",
+            "Maintenance": "Perawatan",
+            "Cleaning": "Dibersihkan"
+        },
+        "addRoomDialog": {
+            "title": "Tambah Kamar Baru",
+            "editTitle": "Ubah Kamar",
+            "description": "Isi detail untuk kamar baru.",
+            "roomName": "Nama Kamar",
+            "descriptionField": "Deskripsi",
+            "pricePerNight": "Harga per Malam",
+            "imageUrl": "URL Gambar",
+            "submit": "Simpan Kamar",
+            "cancel": "Batal",
+            "errors": {
+                "roomNameRequired": "Nama kamar wajib diisi.",
+                "descriptionRequired": "Deskripsi wajib diisi.",
+                "priceRequired": "Harga wajib diisi.",
+                "imageUrlInvalid": "Silakan masukkan URL gambar yang valid."
+            },
+            "success": {
+                "title": "Kamar Tersimpan",
+                "description": "Berhasil menyimpan kamar '{roomName}'."
+            }
+        }
+    },
     "analyticsPage": {
         "title": "Analitik Hotel",
         "description": "Analitik mendalam tentang kinerja hotel. Halaman ini hanya dapat diakses oleh Administrator.",
@@ -191,5 +225,3 @@
     "copyright": "© {year} Tranquil Stays. Hak Cipta Dilindungi Undang-Undang."
   }
 }
-
-    

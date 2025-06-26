@@ -75,6 +75,7 @@
     "sidebar": {
         "overview": "Overview",
         "bookings": "Bookings",
+        "rooms": "Rooms",
         "guests": "Guests",
         "analytics": "Analytics",
         "settings": "Settings"
@@ -170,6 +171,39 @@
         "lastVisit": "Last Visit"
       }
     },
+    "roomsPage": {
+        "title": "Manage Rooms",
+        "description": "Add, edit, and manage room types and availability.",
+        "addNew": "Add New Room",
+        "edit": "Edit",
+        "delete": "Delete",
+        "statuses": {
+            "Available": "Available",
+            "Maintenance": "Maintenance",
+            "Cleaning": "Cleaning"
+        },
+        "addRoomDialog": {
+            "title": "Add New Room",
+            "editTitle": "Edit Room",
+            "description": "Fill in the details for the new room.",
+            "roomName": "Room Name",
+            "descriptionField": "Description",
+            "pricePerNight": "Price per Night",
+            "imageUrl": "Image URL",
+            "submit": "Save Room",
+            "cancel": "Cancel",
+            "errors": {
+                "roomNameRequired": "Room name is required.",
+                "descriptionRequired": "Description is required.",
+                "priceRequired": "Price is required.",
+                "imageUrlInvalid": "Please enter a valid image URL."
+            },
+            "success": {
+                "title": "Room Saved",
+                "description": "Successfully saved the room '{roomName}'."
+            }
+        }
+    },
     "analyticsPage": {
         "title": "Hotel Analytics",
         "description": "In-depth analytics on hotel performance. This page is only accessible to Administrators.",
@@ -191,5 +225,3 @@
     "copyright": "© {year} Tranquil Stays. All Rights Reserved."
   }
 }
-
-    
