@@ -4,6 +4,7 @@
     "rooms": "Kamar",
     "booking": "Pemesanan",
     "concierge": "Layanan Bantuan",
+    "dashboard": "Dasbor",
     "language": "Bahasa",
     "currency": "Mata Uang",
     "languages": {
@@ -59,6 +60,28 @@
     "departure": "Keberangkatan",
     "arrival": "Kedatangan",
     "price": "Harga"
+  },
+  "dashboard": {
+    "title": "Dasbor",
+    "stats": {
+      "totalRevenue": "Total Pendapatan",
+      "totalBookings": "Total Pemesanan",
+      "avgRating": "Peringkat Rata-rata",
+      "newGuests": "Tamu Baru"
+    },
+    "charts": {
+      "monthlyBookingsTitle": "Gambaran Pemesanan Bulanan",
+      "roomTypeDistributionTitle": "Pemesanan berdasarkan Tipe Kamar",
+      "bookings": "Pemesanan"
+    },
+    "recentBookings": {
+      "title": "Pemesanan Terbaru",
+      "bookingId": "ID Pemesanan",
+      "guest": "Tamu",
+      "roomType": "Tipe Kamar",
+      "date": "Tanggal",
+      "amount": "Jumlah"
+    }
   },
   "footer": {
     "copyright": "© {year} Tranquil Stays. Hak Cipta Dilindungi Undang-Undang."

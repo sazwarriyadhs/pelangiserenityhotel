@@ -13,9 +13,10 @@ export function Header({ lang, dictionary }: { lang: Locale, dictionary: any }) 
         </Link>
         <div className="flex items-center gap-2">
             <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
-              <Link href="#rooms" className="transition-colors hover:text-primary">{dictionary.header.rooms}</Link>
-              <Link href="#booking" className="transition-colors hover:text-primary">{dictionary.header.booking}</Link>
-              <Link href="#concierge" className="transition-colors hover:text-primary">{dictionary.header.concierge}</Link>
+              <Link href="/#rooms" className="transition-colors hover:text-primary">{dictionary.header.rooms}</Link>
+              <Link href="/#booking" className="transition-colors hover:text-primary">{dictionary.header.booking}</Link>
+              <Link href="/#concierge" className="transition-colors hover:text-primary">{dictionary.header.concierge}</Link>
+              <Link href={`/${lang}/dashboard`} className="transition-colors hover:text-primary">{dictionary.header.dashboard}</Link>
             </nav>
             <LocaleSwitcher dictionary={dictionary.header} />
         </div>

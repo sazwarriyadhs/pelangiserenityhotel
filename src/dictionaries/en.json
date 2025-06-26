@@ -4,6 +4,7 @@
     "rooms": "Rooms",
     "booking": "Booking",
     "concierge": "Concierge",
+    "dashboard": "Dashboard",
     "language": "Language",
     "currency": "Currency",
     "languages": {
@@ -59,6 +60,28 @@
     "departure": "Departure",
     "arrival": "Arrival",
     "price": "Price"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "stats": {
+        "totalRevenue": "Total Revenue",
+        "totalBookings": "Total Bookings",
+        "avgRating": "Average Rating",
+        "newGuests": "New Guests"
+    },
+    "charts": {
+        "monthlyBookingsTitle": "Monthly Bookings Overview",
+        "roomTypeDistributionTitle": "Bookings by Room Type",
+        "bookings": "Bookings"
+    },
+    "recentBookings": {
+        "title": "Recent Bookings",
+        "bookingId": "Booking ID",
+        "guest": "Guest",
+        "roomType": "Room Type",
+        "date": "Date",
+        "amount": "Amount"
+    }
   },
   "footer": {
     "copyright": "© {year} Tranquil Stays. All Rights Reserved."
