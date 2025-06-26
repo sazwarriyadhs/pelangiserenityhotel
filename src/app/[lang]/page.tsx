@@ -9,6 +9,8 @@ import Link from 'next/link';
 import { getDictionary } from '@/lib/get-dictionary'
 import type { Locale } from '@/config/i18n-config'
 import { FeaturedHighlights } from '@/components/featured-highlights';
+import { TestimonialsShowcase } from '@/components/testimonials-showcase';
+import { GalleryShowcase } from '@/components/gallery-showcase';
 
 export default async function Home({ params: { lang } }: { params: { lang: Locale } }) {
   const dictionary = await getDictionary(lang)
@@ -48,6 +50,14 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
           <div className="container">
             <RoomShowcase dictionary={dictionary.rooms} />
           </div>
+        </section>
+
+        <section id="testimonials" className="py-16 md:py-24 lg:py-32 bg-background">
+            <TestimonialsShowcase dictionary={dictionary.testimonials} />
+        </section>
+
+        <section id="gallery" className="py-16 md:py-24 lg:py-32">
+            <GalleryShowcase dictionary={dictionary.gallery} />
         </section>
 
         <section className="w-full py-16 md:py-24 lg:py-32 bg-black border-y border-primary/20">

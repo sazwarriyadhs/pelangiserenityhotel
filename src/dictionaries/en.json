@@ -51,6 +51,14 @@
     "bookNow": "Book Now",
     "perNight": "/night"
   },
+  "testimonials": {
+    "title": "What Our Guests Say",
+    "subtitle": "Hear from those who have experienced the tranquility and luxury of our hotel."
+  },
+  "gallery": {
+    "title": "Explore Our World",
+    "subtitle": "A glimpse into the serene and luxurious atmosphere at Tranquil Stays."
+  },
   "booking": {
     "title": "Book Your Stay",
     "subtitle": "Select your dates and room to begin your journey to tranquility.",
@@ -102,16 +110,19 @@
         "guests": "Guests",
         "payments": "Payments",
         "inventory": "Inventory",
-        "otaIntegrations": "OTA Integrations",
-        "analytics": "Analytics",
-        "staff": "Staff",
         "restaurantManagement": "Restaurant",
         "restaurantMenu": "Menu Management",
         "restaurantOrderManagement": "Order Management",
         "restaurantTables": "Table Management",
         "restaurantKitchen": "Kitchen Display",
-        "generalManagement": "Management",
-        "website": "Website",
+        "siteManagement": "Site Management",
+        "homepage": "Homepage",
+        "testimonials": "Testimonials",
+        "gallery": "Gallery",
+        "generalManagement": "Administration",
+        "otaIntegrations": "OTA Integrations",
+        "analytics": "Analytics",
+        "staff": "Staff",
         "settings": "Settings"
     },
     "title": "Dashboard",
@@ -615,7 +626,7 @@
       }
     },
     "websitePage": {
-        "title": "Website Management",
+        "title": "Homepage Management",
         "description": "Control the content displayed on your public-facing website.",
         "heroSection": {
             "title": "Hero Section",
@@ -633,6 +644,38 @@
         "saveChanges": "Save Changes",
         "toastSuccessTitle": "Content Saved",
         "toastSuccessDescription": "Your website content has been updated."
+    },
+    "testimonialsPage": {
+        "title": "Testimonials Management",
+        "description": "Manage customer testimonials shown on the public website.",
+        "addTestimonial": "Add Testimonial",
+        "publish": "Publish",
+        "statuses": {
+            "published": "Published",
+            "unpublished": "Unpublished"
+        },
+        "toast": {
+            "statusChangedTitle": "Status Updated",
+            "statusChangedDescription": "Testimonial status has been changed to {status}."
+        }
+    },
+    "galleryPage": {
+        "title": "Gallery Management",
+        "description": "Manage the images displayed in the public website gallery.",
+        "uploadImage": "Upload Image",
+        "categories": {
+            "Rooms": "Rooms",
+            "Restaurant": "Restaurant",
+            "Pool": "Pool",
+            "Spa": "Spa",
+            "Events": "Events"
+        },
+        "toast": {
+            "uploadSuccessTitle": "Upload Successful (Mock)",
+            "uploadSuccessDescription": "Your image has been added to the gallery.",
+            "deleteSuccessTitle": "Image Deleted",
+            "deleteSuccessDescription": "The image has been removed from the gallery."
+        }
     }
   },
   "accessDenied": {

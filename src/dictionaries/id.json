@@ -51,6 +51,14 @@
     "bookNow": "Pesan Sekarang",
     "perNight": "/malam"
   },
+  "testimonials": {
+    "title": "Kata Tamu Kami",
+    "subtitle": "Dengarkan dari mereka yang telah merasakan ketenangan dan kemewahan hotel kami."
+  },
+  "gallery": {
+    "title": "Jelajahi Dunia Kami",
+    "subtitle": "Sekilas tentang suasana tenang dan mewah di Tranquil Stays."
+  },
   "booking": {
     "title": "Pesan Penginapan Anda",
     "subtitle": "Pilih tanggal dan kamar Anda untuk memulai perjalanan menuju ketenangan.",
@@ -102,16 +110,19 @@
         "guests": "Tamu",
         "payments": "Pembayaran",
         "inventory": "Inventaris",
-        "otaIntegrations": "Integrasi OTA",
-        "analytics": "Analitik",
-        "staff": "Staf",
         "restaurantManagement": "Restoran",
         "restaurantMenu": "Manajemen Menu",
         "restaurantOrderManagement": "Manajemen Pesanan",
         "restaurantTables": "Manajemen Meja",
         "restaurantKitchen": "Tampilan Dapur",
-        "generalManagement": "Manajemen",
-        "website": "Situs Web",
+        "siteManagement": "Manajemen Situs",
+        "homepage": "Halaman Utama",
+        "testimonials": "Testimoni",
+        "gallery": "Galeri",
+        "generalManagement": "Administrasi",
+        "otaIntegrations": "Integrasi OTA",
+        "analytics": "Analitik",
+        "staff": "Staf",
         "settings": "Pengaturan"
     },
     "title": "Dasbor",
@@ -615,7 +626,7 @@
       }
     },
     "websitePage": {
-        "title": "Manajemen Situs Web",
+        "title": "Manajemen Halaman Utama",
         "description": "Kontrol konten yang ditampilkan di situs web publik Anda.",
         "heroSection": {
             "title": "Bagian Hero",
@@ -633,6 +644,38 @@
         "saveChanges": "Simpan Perubahan",
         "toastSuccessTitle": "Konten Tersimpan",
         "toastSuccessDescription": "Konten situs web Anda telah diperbarui."
+    },
+    "testimonialsPage": {
+        "title": "Manajemen Testimoni",
+        "description": "Kelola testimoni pelanggan yang ditampilkan di situs web publik.",
+        "addTestimonial": "Tambah Testimoni",
+        "publish": "Publikasikan",
+        "statuses": {
+            "published": "Diterbitkan",
+            "unpublished": "Tidak Diterbitkan"
+        },
+        "toast": {
+            "statusChangedTitle": "Status Diperbarui",
+            "statusChangedDescription": "Status testimoni telah diubah menjadi {status}."
+        }
+    },
+    "galleryPage": {
+        "title": "Manajemen Galeri",
+        "description": "Kelola gambar yang ditampilkan di galeri situs web publik.",
+        "uploadImage": "Unggah Gambar",
+        "categories": {
+            "Rooms": "Kamar",
+            "Restaurant": "Restoran",
+            "Pool": "Kolam Renang",
+            "Spa": "Spa",
+            "Events": "Acara"
+        },
+        "toast": {
+            "uploadSuccessTitle": "Unggah Berhasil (Mock)",
+            "uploadSuccessDescription": "Gambar Anda telah ditambahkan ke galeri.",
+            "deleteSuccessTitle": "Gambar Dihapus",
+            "deleteSuccessDescription": "Gambar telah dihapus dari galeri."
+        }
     }
   },
   "accessDenied": {
