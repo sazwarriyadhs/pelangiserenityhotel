@@ -548,6 +548,27 @@
                 "orderStatusNow": "Pesanan {orderId} diperbarui menjadi {status}."
             }
         }
+    },
+    "settingsPage": {
+      "title": "Pengaturan",
+      "description": "Kelola pengaturan umum dan preferensi hotel. Halaman ini hanya untuk administrator.",
+      "hotelDetails": {
+        "title": "Detail Hotel",
+        "description": "Perbarui informasi dasar hotel Anda.",
+        "hotelName": "Nama Hotel",
+        "hotelAddress": "Alamat Hotel"
+      },
+      "appearance": {
+        "title": "Tampilan",
+        "description": "Sesuaikan tampilan dan nuansa aplikasi.",
+        "darkMode": "Mode Gelap",
+        "darkModeDescription": "Aktifkan atau nonaktifkan mode gelap untuk seluruh aplikasi."
+      },
+      "saveChanges": "Simpan Perubahan",
+      "toast": {
+        "title": "Pengaturan Tersimpan",
+        "description": "Perubahan Anda telah berhasil disimpan."
+      }
     }
   },
   "accessDenied": {

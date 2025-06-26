@@ -548,6 +548,27 @@
                 "orderStatusNow": "Order {orderId} status updated to {status}."
             }
         }
+    },
+    "settingsPage": {
+      "title": "Settings",
+      "description": "Manage general hotel settings and preferences. This page is for administrators only.",
+      "hotelDetails": {
+        "title": "Hotel Details",
+        "description": "Update your hotel's basic information.",
+        "hotelName": "Hotel Name",
+        "hotelAddress": "Hotel Address"
+      },
+      "appearance": {
+        "title": "Appearance",
+        "description": "Customize the look and feel of the application.",
+        "darkMode": "Dark Mode",
+        "darkModeDescription": "Enable or disable dark mode for the entire application."
+      },
+      "saveChanges": "Save Changes",
+      "toast": {
+        "title": "Settings Saved",
+        "description": "Your changes have been saved successfully."
+      }
     }
   },
   "accessDenied": {
