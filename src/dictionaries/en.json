@@ -80,6 +80,7 @@
         "housekeeping": "Housekeeping",
         "guests": "Guests",
         "payments": "Payments",
+        "inventory": "Inventory",
         "analytics": "Analytics",
         "staff": "Staff",
         "settings": "Settings",
@@ -338,6 +339,74 @@
             "success": {
                 "title": "Staff Member Saved",
                 "description": "Successfully saved the staff member '{name}'."
+            }
+        }
+    },
+    "inventoryPage": {
+        "title": "Inventory Management",
+        "description": "Track and manage all hotel and restaurant inventory.",
+        "addNewItem": "Add New Item",
+        "recordMovement": "Record Stock Movement",
+        "stats": {
+            "totalItems": "Total Unique Items",
+            "lowStockItems": "Items with Low Stock"
+        },
+        "categories": {
+            "All": "All Items",
+            "Housekeeping": "Housekeeping",
+            "Kitchen": "Kitchen",
+            "Bar": "Bar",
+            "Utility": "Utility"
+        },
+        "headers": {
+            "item": "Item",
+            "category": "Category",
+            "stock": "Stock on Hand",
+            "supplier": "Supplier"
+        },
+        "addItemDialog": {
+            "title": "Add New Inventory Item",
+            "description": "Enter the details for the new item.",
+            "name": "Item Name",
+            "category": "Category",
+            "selectCategory": "Select a category",
+            "initialStock": "Initial Stock Quantity",
+            "lowStockAt": "Low Stock Threshold",
+            "supplier": "Supplier (Optional)",
+            "submit": "Save Item",
+            "cancel": "Cancel",
+            "errors": {
+                "nameRequired": "Item name is required.",
+                "categoryRequired": "Category is required.",
+                "quantityNonNegative": "Quantity cannot be negative.",
+                "thresholdNonNegative": "Threshold cannot be negative."
+            },
+            "success": {
+                "title": "Item Added",
+                "description": "Successfully added '{name}' to the inventory."
+            }
+        },
+        "moveStockDialog": {
+            "title": "Record Stock Movement",
+            "description": "Log stock coming in (purchases) or going out (usage).",
+            "item": "Item",
+            "selectItem": "Select an item",
+            "movementType": "Movement Type",
+            "selectType": "Select a type",
+            "in": "Stock In (Purchase)",
+            "out": "Stock Out (Usage)",
+            "quantity": "Quantity",
+            "submit": "Record Movement",
+            "cancel": "Cancel",
+            "errors": {
+                "itemRequired": "Please select an item.",
+                "movementTypeRequired": "Please select a movement type.",
+                "quantityPositive": "Quantity must be greater than 0.",
+                "insufficientStock": "Insufficient stock for this movement."
+            },
+            "success": {
+                "title": "Stock Updated",
+                "description": "Recorded {quantity} units of {type} for {itemName}."
             }
         }
     },

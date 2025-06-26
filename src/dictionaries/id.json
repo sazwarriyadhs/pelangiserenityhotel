@@ -80,6 +80,7 @@
         "housekeeping": "Tata Graha",
         "guests": "Tamu",
         "payments": "Pembayaran",
+        "inventory": "Inventaris",
         "analytics": "Analitik",
         "staff": "Staf",
         "settings": "Pengaturan",
@@ -338,6 +339,74 @@
             "success": {
                 "title": "Anggota Staf Disimpan",
                 "description": "Berhasil menyimpan anggota staf '{name}'."
+            }
+        }
+    },
+    "inventoryPage": {
+        "title": "Manajemen Inventaris",
+        "description": "Lacak dan kelola semua inventaris hotel dan restoran.",
+        "addNewItem": "Tambah Item Baru",
+        "recordMovement": "Catat Pergerakan Stok",
+        "stats": {
+            "totalItems": "Total Item Unik",
+            "lowStockItems": "Item Stok Rendah"
+        },
+        "categories": {
+            "All": "Semua Item",
+            "Housekeeping": "Tata Graha",
+            "Kitchen": "Dapur",
+            "Bar": "Bar",
+            "Utility": "Utilitas"
+        },
+        "headers": {
+            "item": "Item",
+            "category": "Kategori",
+            "stock": "Stok Tersedia",
+            "supplier": "Pemasok"
+        },
+        "addItemDialog": {
+            "title": "Tambah Item Inventaris Baru",
+            "description": "Masukkan detail untuk item baru.",
+            "name": "Nama Item",
+            "category": "Kategori",
+            "selectCategory": "Pilih kategori",
+            "initialStock": "Jumlah Stok Awal",
+            "lowStockAt": "Ambang Batas Stok Rendah",
+            "supplier": "Pemasok (Opsional)",
+            "submit": "Simpan Item",
+            "cancel": "Batal",
+            "errors": {
+                "nameRequired": "Nama item wajib diisi.",
+                "categoryRequired": "Kategori wajib diisi.",
+                "quantityNonNegative": "Jumlah tidak boleh negatif.",
+                "thresholdNonNegative": "Ambang batas tidak boleh negatif."
+            },
+            "success": {
+                "title": "Item Ditambahkan",
+                "description": "Berhasil menambahkan '{name}' ke inventaris."
+            }
+        },
+        "moveStockDialog": {
+            "title": "Catat Pergerakan Stok",
+            "description": "Catat stok masuk (pembelian) atau keluar (penggunaan).",
+            "item": "Item",
+            "selectItem": "Pilih item",
+            "movementType": "Jenis Pergerakan",
+            "selectType": "Pilih jenis",
+            "in": "Stok Masuk (Pembelian)",
+            "out": "Stok Keluar (Penggunaan)",
+            "quantity": "Jumlah",
+            "submit": "Catat Pergerakan",
+            "cancel": "Batal",
+            "errors": {
+                "itemRequired": "Silakan pilih item.",
+                "movementTypeRequired": "Silakan pilih jenis pergerakan.",
+                "quantityPositive": "Jumlah harus lebih besar dari 0.",
+                "insufficientStock": "Stok tidak mencukupi untuk pergerakan ini."
+            },
+            "success": {
+                "title": "Stok Diperbarui",
+                "description": "Mencatat {quantity} unit {type} untuk {itemName}."
             }
         }
     },
