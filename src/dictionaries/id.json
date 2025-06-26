@@ -68,6 +68,10 @@
     "price": "Harga"
   },
   "dashboard": {
+    "header": {
+        "title": "Dasbor Admin",
+        "viewSite": "Lihat Situs"
+    },
     "title": "Dasbor",
     "stats": {
       "totalRevenue": "Total Pendapatan",

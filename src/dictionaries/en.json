@@ -68,6 +68,10 @@
     "price": "Price"
   },
   "dashboard": {
+    "header": {
+        "title": "Admin Dashboard",
+        "viewSite": "View Site"
+    },
     "title": "Dashboard",
     "stats": {
         "totalRevenue": "Total Revenue",
