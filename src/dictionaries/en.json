@@ -84,7 +84,8 @@
         "staff": "Staff",
         "settings": "Settings",
         "restaurantManagement": "Restaurant",
-        "restaurantMenu": "Menu Management"
+        "restaurantMenu": "Menu Management",
+        "restaurantOrderManagement": "Order Management"
     },
     "title": "Dashboard",
     "stats": {
@@ -374,6 +375,40 @@
                     "title": "Menu Item Saved",
                     "description": "Successfully saved the menu item '{name}'."
                 }
+            }
+        },
+        "orderManagementPage": {
+            "title": "Order Management",
+            "description": "Track and manage all incoming food and beverage orders.",
+            "tabs": {
+                "all": "All Orders"
+            },
+            "headers": {
+                "orderId": "Order ID",
+                "customer": "Customer / Table",
+                "type": "Order Type",
+                "status": "Status",
+                "amount": "Amount"
+            },
+            "statuses": {
+                "Pending": "Pending",
+                "InProgress": "In Progress",
+                "Served": "Served",
+                "Cancelled": "Cancelled"
+            },
+            "types": {
+                "DineIn": "Dine-in",
+                "TakeAway": "Take-away",
+                "RoomService": "Room Service"
+            },
+            "actions": "Actions",
+            "actionsMenu": {
+                "updateTo": "Set as",
+                "printReceipt": "Print Receipt"
+            },
+            "toast": {
+                "statusUpdated": "Order Status Updated",
+                "orderStatusNow": "Order {orderId} is now {status}."
             }
         }
     }

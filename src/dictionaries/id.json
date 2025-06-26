@@ -84,7 +84,8 @@
         "staff": "Staf",
         "settings": "Pengaturan",
         "restaurantManagement": "Restoran",
-        "restaurantMenu": "Manajemen Menu"
+        "restaurantMenu": "Manajemen Menu",
+        "restaurantOrderManagement": "Manajemen Pesanan"
     },
     "title": "Dasbor",
     "stats": {
@@ -374,6 +375,40 @@
                     "title": "Item Menu Disimpan",
                     "description": "Berhasil menyimpan item menu '{name}'."
                 }
+            }
+        },
+        "orderManagementPage": {
+            "title": "Manajemen Pesanan",
+            "description": "Lacak dan kelola semua pesanan makanan dan minuman yang masuk.",
+            "tabs": {
+                "all": "Semua Pesanan"
+            },
+            "headers": {
+                "orderId": "ID Pesanan",
+                "customer": "Pelanggan / Meja",
+                "type": "Tipe Pesanan",
+                "status": "Status",
+                "amount": "Jumlah"
+            },
+            "statuses": {
+                "Pending": "Tertunda",
+                "InProgress": "Diproses",
+                "Served": "Disajikan",
+                "Cancelled": "Dibatalkan"
+            },
+            "types": {
+                "DineIn": "Makan di Tempat",
+                "TakeAway": "Bawa Pulang",
+                "RoomService": "Layanan Kamar"
+            },
+            "actions": "Aksi",
+            "actionsMenu": {
+                "updateTo": "Ubah ke",
+                "printReceipt": "Cetak Struk"
+            },
+            "toast": {
+                "statusUpdated": "Status Pesanan Diperbarui",
+                "orderStatusNow": "Pesanan {orderId} sekarang {status}."
             }
         }
     }
