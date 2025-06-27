@@ -15,6 +15,7 @@ import type { Locale } from "@/config/i18n-config";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useCurrency } from "@/context/currency-provider";
 import { priceRates, formatCurrency } from "@/lib/currency";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const getConciergeFormSchema = (dictionary: any) => z.object({
   interests: z.string().min(10, {
@@ -94,10 +95,17 @@ export function AiConcierge({ dictionary, lang }: { dictionary: any, lang: Local
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            {recommendation.recommendations && (
-              <div className="prose prose-invert prose-p:text-foreground/80 whitespace-pre-wrap">
-                {recommendation.recommendations}
-              </div>
+            {recommendation.recommendations && recommendation.recommendations.length > 0 && (
+                <Accordion type="single" collapsible className="w-full">
+                    {recommendation.recommendations.map((item, index) => (
+                        <AccordionItem value={`item-${index}`} key={index}>
+                            <AccordionTrigger className="text-left">{item.title}</AccordionTrigger>
+                            <AccordionContent className="whitespace-pre-wrap">
+                                {item.description}
+                            </AccordionContent>
+                        </AccordionItem>
+                    ))}
+                </Accordion>
             )}
 
             {recommendation.flights && recommendation.flights.length > 0 && (
