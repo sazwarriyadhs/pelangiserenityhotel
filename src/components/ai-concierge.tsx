@@ -16,6 +16,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { useCurrency } from "@/context/currency-provider";
 import { priceRates, formatCurrency } from "@/lib/currency";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
 
 const getConciergeFormSchema = (dictionary: any) => z.object({
   interests: z.string().min(10, {
@@ -99,8 +100,13 @@ export function AiConcierge({ dictionary, lang }: { dictionary: any, lang: Local
                 <Accordion type="single" collapsible className="w-full">
                     {recommendation.recommendations.map((item, index) => (
                         <AccordionItem value={`item-${index}`} key={index}>
-                            <AccordionTrigger className="text-left">{item.title}</AccordionTrigger>
-                            <AccordionContent className="whitespace-pre-wrap">
+                            <AccordionTrigger className="text-left hover:no-underline">
+                                <div className="flex w-full items-center justify-between gap-4">
+                                  <span className="flex-1">{item.title}</span>
+                                  {item.category && <Badge variant="secondary">{item.category}</Badge>}
+                                </div>
+                            </AccordionTrigger>
+                            <AccordionContent className="whitespace-pre-wrap text-muted-foreground">
                                 {item.description}
                             </AccordionContent>
                         </AccordionItem>

@@ -62,7 +62,8 @@ const LocalAttractionRecommendationOutputSchema = z.object({
   recommendations: z.array(z.object({
     title: z.string().describe('The name or title of the local attraction.'),
     description: z.string().describe('A detailed description of the attraction and why it is recommended based on the user\'s interests.'),
-  })).describe('A list of personalized recommendations for local attractions near the hotel. Each recommendation should have a title and a description.'),
+    category: z.string().describe("A category for the attraction, for example: 'Museum', 'Restaurant', 'Park', 'Shopping', 'Music Venue'.")
+  })).describe('A list of personalized recommendations for local attractions near the hotel. Each recommendation should have a title, a description, and a category.'),
   flights: z.array(FlightSchema).optional().describe('A list of flight options, if requested by the user.'),
 });
 export type LocalAttractionRecommendationOutput = z.infer<typeof LocalAttractionRecommendationOutputSchema>;
@@ -78,7 +79,7 @@ const prompt = ai.definePrompt({
   input: {schema: LocalAttractionRecommendationInputSchema},
   output: {schema: LocalAttractionRecommendationOutputSchema},
   tools: [searchFlights],
-  prompt: `You are an AI concierge at a luxury hotel. Your primary goal is to provide a list of personalized recommendations for local attractions based on the guest's interests. For each recommendation, you must provide a title and a detailed description.
+  prompt: `You are an AI concierge at a luxury hotel. Your primary goal is to provide a list of personalized recommendations for local attractions based on the guest's interests. For each recommendation, you must provide a title, a detailed description, and a relevant category.
 
   If the guest's request also mentions needing to find flights, use the 'searchFlights' tool to find flight options. Populate the 'flights' field in the output with the search results. Do not mention the flights in the 'recommendations' array.
 
