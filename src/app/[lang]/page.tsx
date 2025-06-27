@@ -22,9 +22,9 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
         <section className="relative h-[70vh] w-full flex items-center justify-center text-center text-foreground overflow-hidden">
           <div className="absolute inset-0 bg-black/60 z-10" />
           <Image
-            src="/images/hotel1.png"
+            src="https://placehold.co/1920x1080.png"
             alt="Luxury hotel lobby with a grand chandelier"
-            data-ai-hint="luxury hotel"
+            data-ai-hint="luxury lobby"
             fill
             className="object-cover"
             priority
