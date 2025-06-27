@@ -12,7 +12,7 @@ type MenuCategory = 'Breakfast' | 'Lunch' | 'Dinner' | 'Drinks';
 export function MenuShowcase({ dictionary }: { dictionary: any }) {
     const { currency } = useCurrency();
     const menuDict = dictionary.dashboard.restaurant.menuManagementPage;
-    const pageDict = dictionary.restaurantPage;
+    const pageDict = dictionary.dashboard.restaurantPage;
     
     const categories: MenuCategory[] = ['Breakfast', 'Lunch', 'Dinner', 'Drinks'];
 
