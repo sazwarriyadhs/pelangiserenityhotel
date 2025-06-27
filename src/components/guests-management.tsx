@@ -51,7 +51,7 @@ type GuestWithHistory = {
 
 const mockGuests: GuestWithHistory[] = [
     { 
-        id: 'GST-001', name: 'Alice Johnson', email: 'alice@example.com', phone: '+1234567890', totalBookings: 3, lastVisit: '2024-07-28', avatar: 'https://placehold.co/100x100.png', joinDate: '2023-01-15', notes: 'Prefers a quiet room away from the elevator.', loyaltyTier: 'Gold', loyaltyPoints: 12500,
+        id: 'GST-001', name: 'Alice Johnson', email: 'alice@example.com', phone: '+1234567890', totalBookings: 3, lastVisit: '2024-07-28', avatar: '/images/avatars/avatar1.png', joinDate: '2023-01-15', notes: 'Prefers a quiet room away from the elevator.', loyaltyTier: 'Gold', loyaltyPoints: 12500,
         bookingHistory: [
             { id: 'BK-1294', room: 'Luxury King Suite', checkIn: '2024-07-26', checkOut: '2024-07-28', amount: 900, status: 'Completed' },
             { id: 'BK-1120', room: 'Deluxe Queen Room', checkIn: '2023-12-20', checkOut: '2023-12-23', amount: 750, status: 'Completed' },
@@ -66,7 +66,7 @@ const mockGuests: GuestWithHistory[] = [
         ]
     },
     { 
-        id: 'GST-002', name: 'Bob Williams', email: 'bob@example.com', phone: '+1987654321', totalBookings: 1, lastVisit: '2024-07-28', avatar: 'https://placehold.co/100x100.png', joinDate: '2024-07-28', notes: 'First time guest.', loyaltyTier: 'Silver', loyaltyPoints: 1500,
+        id: 'GST-002', name: 'Bob Williams', email: 'bob@example.com', phone: '+1987654321', totalBookings: 1, lastVisit: '2024-07-28', avatar: '/images/avatars/avatar2.png', joinDate: '2024-07-28', notes: 'First time guest.', loyaltyTier: 'Silver', loyaltyPoints: 1500,
         bookingHistory: [
             { id: 'BK-1293', room: 'Deluxe Queen Room', checkIn: '2024-07-28', checkOut: '2024-07-30', amount: 500, status: 'CheckedIn' },
         ],
@@ -76,7 +76,7 @@ const mockGuests: GuestWithHistory[] = [
         ]
     },
     { 
-        id: 'GST-003', name: 'Charlie Brown', email: 'charlie@example.com', phone: '+1122334455', totalBookings: 5, lastVisit: '2024-07-27', avatar: 'https://placehold.co/100x100.png', joinDate: '2022-03-10', notes: 'VIP Guest. Likes a complimentary fruit basket upon arrival.', loyaltyTier: 'Platinum', loyaltyPoints: 55000,
+        id: 'GST-003', name: 'Charlie Brown', email: 'charlie@example.com', phone: '+1122334455', totalBookings: 5, lastVisit: '2024-07-27', avatar: '/images/avatars/avatar3.png', joinDate: '2022-03-10', notes: 'VIP Guest. Likes a complimentary fruit basket upon arrival.', loyaltyTier: 'Platinum', loyaltyPoints: 55000,
         bookingHistory: [
             { id: 'BK-1292', room: 'Presidential Suite', checkIn: '2024-07-25', checkOut: '2024-07-27', amount: 2400, status: 'Completed' },
             { id: 'BK-1105', room: 'Presidential Suite', checkIn: '2023-11-01', checkOut: '2023-11-05', amount: 4800, status: 'Completed' },
@@ -89,7 +89,7 @@ const mockGuests: GuestWithHistory[] = [
         ]
     },
     { 
-        id: 'GST-004', name: 'Diana Prince', email: 'diana@example.com', phone: '+1555666777', totalBookings: 2, lastVisit: '2024-07-26', avatar: 'https://placehold.co/100x100.png', joinDate: '2023-08-19', notes: '', loyaltyTier: 'Silver', loyaltyPoints: 4000,
+        id: 'GST-004', name: 'Diana Prince', email: 'diana@example.com', phone: '+1555666777', totalBookings: 2, lastVisit: '2024-07-26', avatar: '/images/avatars/avatar4.png', joinDate: '2023-08-19', notes: '', loyaltyTier: 'Silver', loyaltyPoints: 4000,
         bookingHistory: [
             { id: 'BK-1291', room: 'Deluxe Queen Room', checkIn: '2024-07-24', checkOut: '2024-07-26', amount: 500, status: 'Completed' },
         ],
@@ -99,7 +99,7 @@ const mockGuests: GuestWithHistory[] = [
         ]
     },
     { 
-        id: 'GST-005', name: 'Ethan Hunt', email: 'ethan@example.com', phone: '+1444333222', totalBookings: 1, lastVisit: '2024-07-25', avatar: 'https://placehold.co/100x100.png', joinDate: '2024-07-25', notes: 'Allergic to peanuts.', loyaltyTier: 'None', loyaltyPoints: 900,
+        id: 'GST-005', name: 'Ethan Hunt', email: 'ethan@example.com', phone: '+1444333222', totalBookings: 1, lastVisit: '2024-07-25', avatar: '/images/avatars/avatar5.png', joinDate: '2024-07-25', notes: 'Allergic to peanuts.', loyaltyTier: 'None', loyaltyPoints: 900,
         bookingHistory: [
             { id: 'BK-1290', room: 'Luxury King Suite', checkIn: '2024-07-23', checkOut: '2024-07-25', amount: 900, status: 'Completed' },
         ],

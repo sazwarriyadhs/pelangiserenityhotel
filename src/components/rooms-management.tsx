@@ -124,7 +124,7 @@ export function RoomsManagement({ dictionary, lang }: { dictionary: any, lang: L
                                 <FormField control={form.control} name="imageUrl" render={({ field }) => (
                                     <FormItem>
                                         <FormLabel>{dialogDict.imageUrl}</FormLabel>
-                                        <FormControl><Input placeholder="https://placehold.co/600x400.png" {...field} /></FormControl>
+                                        <FormControl><Input placeholder="/images/room-default.png" {...field} /></FormControl>
                                         <FormMessage />
                                     </FormItem>
                                 )} />

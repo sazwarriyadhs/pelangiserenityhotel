@@ -109,7 +109,7 @@ export function MenuManagement({ dictionary, lang }: { dictionary: any, lang: Lo
                                     </FormItem>
                                 )} />
                                 <FormField control={form.control} name="imageUrl" render={({ field }) => (
-                                    <FormItem><FormLabel>{dialogDict.imageUrl}</FormLabel><FormControl><Input placeholder="https://placehold.co/600x400.png" {...field} /></FormControl><FormMessage /></FormItem>
+                                    <FormItem><FormLabel>{dialogDict.imageUrl}</FormLabel><FormControl><Input placeholder="/images/menu/default.png" {...field} /></FormControl><FormMessage /></FormItem>
                                 )} />
                                 <DialogFooter>
                                     <DialogClose asChild><Button type="button" variant="secondary">{dialogDict.cancel}</Button></DialogClose>

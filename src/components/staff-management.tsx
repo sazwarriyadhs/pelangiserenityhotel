@@ -1,3 +1,4 @@
+
 'use client'
 
 import { useState } from 'react'
@@ -156,12 +157,12 @@ export function StaffManagement({ dictionary, lang }: { dictionary: any, lang: L
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {mockStaff.map((staff) => (
+                            {mockStaff.map((staff, index) => (
                                 <TableRow key={staff.id}>
                                     <TableCell>
                                         <div className="flex items-center gap-3">
                                             <Avatar className="h-9 w-9">
-                                                <AvatarImage src={`https://placehold.co/100x100.png?text=${staff.name.charAt(0)}`} alt={staff.name} data-ai-hint="avatar person" />
+                                                <AvatarImage src={`/images/avatars/staff${(index % 2) + 1}.png`} alt={staff.name} data-ai-hint="avatar person" />
                                                 <AvatarFallback>{staff.name.charAt(0)}</AvatarFallback>
                                             </Avatar>
                                             <div className="font-medium">{staff.name}</div>

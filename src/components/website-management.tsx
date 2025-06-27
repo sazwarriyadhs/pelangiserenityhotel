@@ -20,7 +20,7 @@ export function WebsiteManagement({ dictionary, lang }: { dictionary: any, lang:
     // State for Hero Section
     const [heroTitle, setHeroTitle] = useState(dictionary.hero.title);
     const [heroSubtitle, setHeroSubtitle] = useState(dictionary.hero.subtitle);
-    const [heroImageUrl, setHeroImageUrl] = useState("https://placehold.co/1920x1080.png");
+    const [heroImageUrl, setHeroImageUrl] = useState("/images/hotel1.png");
 
     // State for Highlights Section
     const [h1Title, setH1Title] = useState(dictionary.highlights.items.seaBreeze.title);

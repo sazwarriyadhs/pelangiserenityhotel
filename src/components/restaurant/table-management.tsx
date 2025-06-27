@@ -170,7 +170,7 @@ export function TableManagement({ dictionary, lang }: { dictionary: any, lang: L
                     </DialogHeader>
                     <div className="flex justify-center p-4">
                         <Image
-                            src={`https://placehold.co/200x200.png?text=QR+Code`}
+                            src="/images/qr-code-mock.png"
                             alt={`QR Code for Table ${selectedTable?.number}`}
                             width={200}
                             height={200}

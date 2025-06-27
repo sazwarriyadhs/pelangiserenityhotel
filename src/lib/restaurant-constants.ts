@@ -17,7 +17,7 @@ export const menuItems: MenuItem[] = [
         description: 'Two eggs any style, bacon or sausage, toast, and breakfast potatoes.',
         price: 15.00,
         category: 'Breakfast',
-        image: 'https://placehold.co/600x400.png',
+        image: '/images/menu-breakfast-classic.png',
         aiHint: 'american breakfast',
     },
     {
@@ -26,7 +26,7 @@ export const menuItems: MenuItem[] = [
         description: 'Smashed avocado on sourdough toast with red pepper flakes and a poached egg.',
         price: 12.50,
         category: 'Breakfast',
-        image: 'https://placehold.co/600x400.png',
+        image: '/images/menu-breakfast-avocado.png',
         aiHint: 'avocado toast',
     },
     // Lunch
@@ -36,7 +36,7 @@ export const menuItems: MenuItem[] = [
         description: 'Grilled chicken breast with lettuce, tomato, and aioli on a brioche bun. Served with fries.',
         price: 18.00,
         category: 'Lunch',
-        image: 'https://placehold.co/600x400.png',
+        image: '/images/menu-lunch-sandwich.png',
         aiHint: 'chicken sandwich',
     },
     {
@@ -45,7 +45,7 @@ export const menuItems: MenuItem[] = [
         description: 'Crisp romaine lettuce, parmesan cheese, croutons, and Caesar dressing. Add chicken for $5.',
         price: 14.00,
         category: 'Lunch',
-        image: 'https://placehold.co/600x400.png',
+        image: '/images/menu-lunch-salad.png',
         aiHint: 'caesar salad',
     },
     // Dinner
@@ -55,7 +55,7 @@ export const menuItems: MenuItem[] = [
         description: '8oz center-cut filet, served with mashed potatoes and grilled asparagus.',
         price: 45.00,
         category: 'Dinner',
-        image: 'https://placehold.co/600x400.png',
+        image: '/images/menu-dinner-filet.png',
         aiHint: 'filet mignon',
     },
     {
@@ -64,7 +64,7 @@ export const menuItems: MenuItem[] = [
         description: 'Salmon fillet with a crispy skin, served over a bed of quinoa and seasonal vegetables.',
         price: 32.00,
         category: 'Dinner',
-        image: 'https://placehold.co/600x400.png',
+        image: '/images/menu-dinner-salmon.png',
         aiHint: 'seared salmon',
     },
      {
@@ -73,7 +73,7 @@ export const menuItems: MenuItem[] = [
         description: 'Handmade ravioli stuffed with lobster meat in a creamy tomato sauce.',
         price: 35.00,
         category: 'Dinner',
-        image: 'https://placehold.co/600x400.png',
+        image: '/images/menu-dinner-ravioli.png',
         aiHint: 'lobster ravioli',
     },
     // Drinks
@@ -83,7 +83,7 @@ export const menuItems: MenuItem[] = [
         description: 'A strong shot of freshly brewed coffee.',
         price: 4.00,
         category: 'Drinks',
-        image: 'https://placehold.co/600x400.png',
+        image: '/images/menu-drink-espresso.png',
         aiHint: 'espresso shot',
     },
     {
@@ -92,7 +92,7 @@ export const menuItems: MenuItem[] = [
         description: 'Bourbon, a sugar cube, Angostura bitters, and an orange peel.',
         price: 16.00,
         category: 'Drinks',
-        image: 'https://placehold.co/600x400.png',
+        image: '/images/menu-drink-cocktail.png',
         aiHint: 'old fashioned cocktail',
     },
 ];
