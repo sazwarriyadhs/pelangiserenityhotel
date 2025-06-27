@@ -24,8 +24,8 @@
     }
   },
   "hero": {
-    "title": "Tranquil Stays",
-    "subtitle": "Where luxury meets tranquility. Your exclusive escape awaits.",
+    "title": "Serenity",
+    "subtitle": "Where luxury meets serenity. Your exclusive escape awaits.",
     "button": "Book Your Stay"
   },
   "highlights": {
@@ -54,15 +54,15 @@
   },
   "testimonials": {
     "title": "What Our Guests Say",
-    "subtitle": "Hear from those who have experienced the tranquility and luxury of our hotel."
+    "subtitle": "Hear from those who have experienced the serenity and luxury of our hotel."
   },
   "gallery": {
     "title": "Explore Our World",
-    "subtitle": "A glimpse into the serene and luxurious atmosphere at Tranquil Stays."
+    "subtitle": "A glimpse into the serene and luxurious atmosphere at Serenity."
   },
   "booking": {
     "title": "Book Your Stay",
-    "subtitle": "Select your dates and room to begin your journey to tranquility.",
+    "subtitle": "Select your dates and room to begin your journey to serenity.",
     "guestName": "Guest Name",
     "guestNamePlaceholder": "e.g., John Doe",
     "roomType": "Room Type",
@@ -711,6 +711,6 @@
     "goHome": "Go to Homepage"
   },
   "footer": {
-    "copyright": "© {year} Tranquil Stays. All Rights Reserved."
+    "copyright": "© {year} Serenity Hotel, Resort, and Restaurant. All Rights Reserved."
   }
 }

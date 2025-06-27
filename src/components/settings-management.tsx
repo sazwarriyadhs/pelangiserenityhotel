@@ -47,7 +47,7 @@ export function SettingsManagement({ dictionary, lang }: { dictionary: any, lang
                 <CardContent className="space-y-4">
                     <div className="space-y-2">
                         <Label htmlFor="hotelName">{settingsDict.hotelDetails.hotelName}</Label>
-                        <Input id="hotelName" defaultValue="Tranquil Stays" />
+                        <Input id="hotelName" defaultValue="Serenity Hotel, Resort, and Restaurant" />
                     </div>
                     <div className="space-y-2">
                         <Label htmlFor="hotelAddress">{settingsDict.hotelDetails.hotelAddress}</Label>

@@ -2,7 +2,7 @@
 'use client'
 
 import Link from 'next/link';
-import { LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, Hotel, BedDouble, CreditCard, Sparkles, UserCog, UtensilsCrossed, ClipboardList, Armchair, ChefHat, Boxes, Share2, LayoutTemplate, Star, Image as ImageIcon, TrendingUp } from 'lucide-react';
+import { LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, Flower2, BedDouble, CreditCard, Sparkles, UserCog, UtensilsCrossed, ClipboardList, Armchair, ChefHat, Boxes, Share2, LayoutTemplate, Star, Image as ImageIcon, TrendingUp } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import type { Locale } from '@/config/i18n-config';
@@ -47,8 +47,8 @@ export function DashboardSidebar({ dictionary, lang }: { dictionary: any, lang: 
            <div className="flex h-full max-h-screen flex-col gap-2">
                 <div className="flex h-[60px] items-center border-b px-6">
                     <Link href={`/${lang}/dashboard`} className="flex items-center gap-2 font-semibold">
-                        <Hotel className="h-6 w-6 text-primary" />
-                        <span className="font-headline text-xl">Tranquil Stays</span>
+                        <Flower2 className="h-6 w-6 text-primary" />
+                        <span className="font-headline text-xl">Serenity</span>
                     </Link>
                 </div>
                 <div className="flex-1 overflow-y-auto">

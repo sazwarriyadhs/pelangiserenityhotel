@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Hotel, Menu, LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, BedDouble, CreditCard, Sparkles, UserCog, UtensilsCrossed, ClipboardList, Armchair, ChefHat, Boxes, Share2, LayoutTemplate, Star, Image as ImageIcon, TrendingUp } from "lucide-react";
+import { Flower2, Menu, LayoutDashboard, BookOpenCheck, Users, BarChart3, Settings, BedDouble, CreditCard, Sparkles, UserCog, UtensilsCrossed, ClipboardList, Armchair, ChefHat, Boxes, Share2, LayoutTemplate, Star, Image as ImageIcon, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LocaleSwitcher } from './locale-switcher'
@@ -63,7 +63,7 @@ export function DashboardHeader({ lang, dictionary }: { lang: Locale, dictionary
                 <div className="flex h-full max-h-screen flex-col">
                     <div className="flex h-16 items-center border-b px-6">
                         <Link href={`/${lang}/dashboard`} className="flex items-center gap-3 font-bold text-primary">
-                            <Hotel className="h-6 w-6" />
+                            <Flower2 className="h-6 w-6" />
                             <span className="text-2xl font-headline">{headerDict.title}</span>
                         </Link>
                     </div>
@@ -135,7 +135,7 @@ export function DashboardHeader({ lang, dictionary }: { lang: Locale, dictionary
         </Sheet>
         <div className="w-full flex-1 flex items-center justify-between md:justify-end">
             <Link href={`/${lang}/dashboard`} className="flex items-center gap-3 font-bold text-primary md:hidden">
-                <Hotel className="h-6 w-6" />
+                <Flower2 className="h-6 w-6" />
                 <span className="text-xl font-headline">{dictionary.dashboard.header.title}</span>
             </Link>
             <div className="flex items-center gap-2">

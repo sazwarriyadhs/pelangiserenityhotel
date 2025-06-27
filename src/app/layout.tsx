@@ -4,8 +4,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from '@/context/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'Tranquil Stays',
-  description: 'Where luxury meets tranquility. Your exclusive escape awaits.',
+  title: 'Serenity Hotel, Resort, and Restaurant',
+  description: 'Where luxury meets serenity. Your exclusive escape awaits.',
 };
 
 export default function RootLayout({

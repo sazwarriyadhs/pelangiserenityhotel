@@ -33,10 +33,10 @@ type StaffMember = {
 };
 
 const mockStaff: StaffMember[] = [
-    { id: 'STF-001', name: 'Admin User', email: 'admin@tranquilstays.com', role: 'Admin', status: 'Active' },
-    { id: 'STF-002', name: 'Receptionist One', email: 'staff1@tranquilstays.com', role: 'Staff', status: 'Active' },
-    { id: 'STF-003', name: 'Housekeeper One', email: 'hk1@tranquilstays.com', role: 'Housekeeping', status: 'Active' },
-    { id: 'STF-004', name: 'Former Staff', email: 'former@tranquilstays.com', role: 'Staff', status: 'Inactive' },
+    { id: 'STF-001', name: 'Admin User', email: 'admin@serenity-hotel.com', role: 'Admin', status: 'Active' },
+    { id: 'STF-002', name: 'Receptionist One', email: 'staff1@serenity-hotel.com', role: 'Staff', status: 'Active' },
+    { id: 'STF-003', name: 'Housekeeper One', email: 'hk1@serenity-hotel.com', role: 'Housekeeping', status: 'Active' },
+    { id: 'STF-004', name: 'Former Staff', email: 'former@serenity-hotel.com', role: 'Staff', status: 'Inactive' },
 ];
 
 const getStaffFormSchema = (dictionary: any) => z.object({

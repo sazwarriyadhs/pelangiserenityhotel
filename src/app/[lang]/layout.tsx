@@ -11,8 +11,8 @@ export async function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: 'Tranquil Stays',
-  description: 'Where luxury meets tranquility. Your exclusive escape awaits.',
+  title: 'Serenity Hotel, Resort, and Restaurant',
+  description: 'Where luxury meets serenity. Your exclusive escape awaits.',
 };
 
 export default function LangLayout({

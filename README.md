@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 # Serenity Hotel, Resort, and Restaurant Management
+=======
+# Serenity Hotel, Resort, and Restaurant
+>>>>>>> e7eec05 (Ganti semua tulisan Tranquil Stays menjadi Serenity Hotel, Resort, and R)
 
 ## Overview
 
-Tranquil Stays is a modern, luxurious hotel booking application designed to provide a seamless and elegant user experience. Built with a powerful stack including Next.js, Genkit, and ShadCN UI, this project demonstrates a sophisticated, feature-rich web application. From browsing exquisite rooms to getting personalized travel recommendations from an AI-powered concierge, Tranquil Stays is your digital gateway to a world of luxury and tranquility.
+Serenity Hotel, Resort, and Restaurant is a modern, luxurious hotel booking application designed to provide a seamless and elegant user experience. Built with a powerful stack including Next.js, Genkit, and ShadCN UI, this project demonstrates a sophisticated, feature-rich web application. From browsing exquisite rooms to getting personalized travel recommendations from an AI-powered concierge, Serenity is your digital gateway to a world of luxury and tranquility.
 
 ## ✨ Features
 
@@ -38,7 +42,7 @@ Follow these instructions to set up and run the project locally.
 
 ```bash
 git clone <repository-url>
-cd tranquil-stays
+cd serenity-hotel
 ```
 
 ### 2. Install Dependencies

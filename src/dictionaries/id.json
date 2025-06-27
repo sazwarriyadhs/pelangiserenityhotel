@@ -24,7 +24,7 @@
     }
   },
   "hero": {
-    "title": "Tranquil Stays",
+    "title": "Serenity",
     "subtitle": "Di mana kemewahan bertemu ketenangan. Pelarian eksklusif Anda menanti.",
     "button": "Pesan Penginapan Anda"
   },
@@ -58,7 +58,7 @@
   },
   "gallery": {
     "title": "Jelajahi Dunia Kami",
-    "subtitle": "Sekilas tentang suasana tenang dan mewah di Tranquil Stays."
+    "subtitle": "Sekilas tentang suasana tenang dan mewah di Serenity."
   },
   "booking": {
     "title": "Pesan Penginapan Anda",
@@ -711,6 +711,6 @@
     "goHome": "Kembali ke Beranda"
   },
   "footer": {
-    "copyright": "© {year} Tranquil Stays. Hak Cipta Dilindungi Undang-Undang."
+    "copyright": "© {year} Serenity Hotel, Resort, and Restaurant. Hak Cipta Dilindungi Undang-Undang."
   }
 }

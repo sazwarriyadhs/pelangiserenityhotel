@@ -50,12 +50,12 @@ export function BookingsManagement({ dictionary, lang }: { dictionary: any, lang
 
     useEffect(() => {
         try {
-            const storedBookings = localStorage.getItem('tranquil-bookings');
+            const storedBookings = localStorage.getItem('serenity-bookings');
             if (storedBookings) {
                 setBookings(JSON.parse(storedBookings));
             } else {
                 // If no bookings in storage, initialize with mock data
-                localStorage.setItem('tranquil-bookings', JSON.stringify(initialBookings));
+                localStorage.setItem('serenity-bookings', JSON.stringify(initialBookings));
                 setBookings(initialBookings);
             }
         } catch (error) {

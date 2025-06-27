@@ -39,8 +39,8 @@ const searchFlights = ai.defineTool(
         // In a real app, this would call a travel marketplace API.
         // For this prototype, we return mock data.
         return [
-            { flightNumber: 'TS123', departureTime: '08:00', arrivalTime: '11:30', price: 350, airline: 'Tranquil Air' },
-            { flightNumber: 'TS456', departureTime: '14:00', arrivalTime: '17:30', price: 420, airline: 'Tranquil Air' },
+            { flightNumber: 'SA123', departureTime: '08:00', arrivalTime: '11:30', price: 350, airline: 'Serenity Air' },
+            { flightNumber: 'SA456', departureTime: '14:00', arrivalTime: '17:30', price: 420, airline: 'Serenity Air' },
         ];
     }
 );

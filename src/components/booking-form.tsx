@@ -88,9 +88,9 @@ export function BookingForm({ dictionary }: { dictionary: any }) {
     };
 
     try {
-      const existingBookings: Booking[] = JSON.parse(localStorage.getItem('tranquil-bookings') || '[]');
+      const existingBookings: Booking[] = JSON.parse(localStorage.getItem('serenity-bookings') || '[]');
       const updatedBookings = [...existingBookings, newBooking];
-      localStorage.setItem('tranquil-bookings', JSON.stringify(updatedBookings));
+      localStorage.setItem('serenity-bookings', JSON.stringify(updatedBookings));
 
       toast({
         title: dictionary.successTitle,
