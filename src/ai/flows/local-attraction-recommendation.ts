@@ -81,6 +81,8 @@ const prompt = ai.definePrompt({
   tools: [searchFlights],
   prompt: `You are an AI concierge at a luxury hotel. Your primary goal is to provide a list of personalized recommendations for local attractions based on the guest's interests. For each recommendation, you must provide a title, a detailed description, and a relevant category.
 
+  You must respond in a valid JSON format that adheres to the provided schema.
+
   If the guest's request also mentions needing to find flights, use the 'searchFlights' tool to find flight options. Populate the 'flights' field in the output with the search results. Do not mention the flights in the 'recommendations' array.
 
   The 'recommendations' array should only contain local attraction recommendations.
@@ -99,6 +101,9 @@ const recommendLocalAttractionsFlow = ai.defineFlow(
   },
   async input => {
     const {output} = await prompt(input);
-    return output!;
+    if (!output) {
+      throw new Error("Failed to get a structured response from the language model.");
+    }
+    return output;
   }
 );
