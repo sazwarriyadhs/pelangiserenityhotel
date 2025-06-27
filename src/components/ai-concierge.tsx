@@ -46,7 +46,7 @@ export function AiConcierge({ dictionary, lang }: { dictionary: any, lang: Local
     try {
       const result = await recommendLocalAttractions({
         interests: values.interests,
-        hotelLocation: "Beverly Hills, CA",
+        hotelLocation: "Jl. Bukit Pelangi No.88, Gn. Geulis, Kec. Sukaraja, Kabupaten Bogor, Jawa Barat 16710",
         language: lang === 'id' ? 'Indonesian' : 'English'
       });
       setRecommendation(result);

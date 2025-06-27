@@ -51,7 +51,7 @@ export function SettingsManagement({ dictionary, lang }: { dictionary: any, lang
                     </div>
                     <div className="space-y-2">
                         <Label htmlFor="hotelAddress">{settingsDict.hotelDetails.hotelAddress}</Label>
-                        <Input id="hotelAddress" defaultValue="123 Luxury Lane, Beverly Hills, CA 90210" />
+                        <Input id="hotelAddress" defaultValue="Jl. Bukit Pelangi No.88, Gn. Geulis, Kec. Sukaraja, Kabupaten Bogor, Jawa Barat 16710" />
                     </div>
                 </CardContent>
             </Card>
